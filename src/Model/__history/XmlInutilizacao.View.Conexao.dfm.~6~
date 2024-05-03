@@ -1,0 +1,23 @@
+object dmDados: TdmDados
+  OnCreate = DataModuleCreate
+  Height = 480
+  Width = 640
+  object fdConnection: TFDConnection
+    Left = 240
+    Top = 104
+  end
+  object fdPgLink: TFDPhysPgDriverLink
+    Left = 320
+    Top = 104
+  end
+  object fdQuery: TFDQuery
+    Connection = fdConnection
+    SQL.Strings = (
+      
+        'SELECT xml arqxml, numeroinicial, serie, modelonf_codigo FROM in' +
+        'utilizacao WHERE datahora BETWEEN '#39'01-01-2024 00:00:00'#39' AND '#39'01-' +
+        '05-2024 23:59:59'#39)
+    Left = 387
+    Top = 104
+  end
+end

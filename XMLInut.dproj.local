@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/09/19 08:21:49.000.232,=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/11/14 10:21:25.000.644,=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/04/02 14:17:58.000.195,=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/04/02 16:25:32.000.015,=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/04/29 11:38:25.000.410,=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/04/29 11:49:37.000.427,=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/05/02 14:55:27.000.579,=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/05/02 14:56:05.000.653,C:\Users\Usuario\Documents\XMLInutilizacao\src\View\XmlInutilizacao.View.Principal.dfm=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2024/05/02 14:56:05.000.653,C:\Users\Usuario\Documents\XMLInutilizacao\src\View\XmlInutilizacao.View.Principal.pas=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/05/02 14:56:13.000.790,C:\Users\Usuario\Documents\XMLInutilizacao\XMLInut.dproj=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/05/02 15:39:20.000.031,=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas</Transaction>
+    <Transaction>2024/05/02 15:39:28.000.788,C:\Users\Usuario\Documents\XMLInutilizacao\Classes\uLib.pas=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas</Transaction>
+    <Transaction>2024/05/02 15:41:46.000.980,=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas</Transaction>
+    <Transaction>2024/05/02 15:42:14.000.048,C:\Users\Usuario\Documents\XMLInutilizacao\src\Model\XmlInutilizacao.View.Conexao.pas=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas</Transaction>
+    <Transaction>2024/05/02 15:42:14.000.048,C:\Users\Usuario\Documents\XMLInutilizacao\src\Model\XmlInutilizacao.View.Conexao.dfm=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.dfm</Transaction>
+    <Transaction>2024/05/03 17:04:36.000.163,C:\Users\Usuario\Documents\XMLInutilizacao\src\Model\XmlInutilizacao.View.Conexao.pas=</Transaction>
+  </Transactions>
+</BorlandProject>
