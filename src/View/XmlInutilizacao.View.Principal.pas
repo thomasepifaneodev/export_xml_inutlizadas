@@ -11,7 +11,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.UI.Intf, FireDAC.Stan.Def,
-  FireDAC.Stan.Pool, FireDAC.VCLUI.Wait;
+  FireDAC.Stan.Pool, FireDAC.VCLUI.Wait, XmlInutilizacao.View.Conexao;
 
 
 type
@@ -36,9 +36,7 @@ type
     Label2: TLabel;
     DatePicker1Inicial: TDatePicker;
     DatePicker2Final: TDatePicker;
-    fdPgLink: TFDPhysPgDriverLink;
     fdQuery: TFDQuery;
-    fdConnection: TFDConnection;
     lblRows: TLabel;
     procedure ButtonConectarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -51,7 +49,6 @@ type
     procedure btn3ExitClick(Sender: TObject);
     procedure btn4ChecarClick(Sender: TObject);
     procedure btn1ExportClick(Sender: TObject);
-    procedure fdPgLinkDriverCreated(Sender: TObject);
   private
     { Private declarations }
     procedure DesativarControles;
@@ -133,19 +130,20 @@ begin
 var
   vFileName: string;
 begin
+  dmDados.fdPgLink.VendorHome := ExtractFilePath(Application.ExeName);
   if ButtonConectar.Caption	= 'Desconectar' then
     try
-      fdConnection.Connected := False;
+      XmlInutilizacao.View.Conexao.dmDados.fdConnection.Connected := False;
       AtivarControles;
       Application.MessageBox('Desconectado!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
-      lblRows.Caption := 'Total de registros: ' + dbGridPrincipal.DataSource.DataSet.RecordCount.ToString;
+      lblRows.Caption := '';
     except
       Application.MessageBox('Não foi possível desconectar!', 'XML Inutilização', MB_OK + MB_ICONEXCLAMATION);
     end
   else
   begin
   if (edt3Base.Text = '') or (edt2Porta.Text = '') or (edt4User.Text = '') or (edt1Ip.Text = '') or (edt5Pass.Text = '') then
-    Application.MessageBox('Erro na Conexão! Preencha Todas as informações de conexão', 'Atenção', MB_OK + MB_ICONERROR)
+      Application.MessageBox('Erro na Conexão! Preencha Todas as informações de conexão', 'Atenção', MB_OK + MB_ICONERROR)
   else
     begin
       vFileName := ExtractFilePath(Application.ExeName) + 'XMLInut.ini';
@@ -155,16 +153,16 @@ begin
       SetValorIni(vFileName, 'CONFIGURACAO', 'USER_C', edt4User.Text);
       SetValorIni(vFileName, 'CONFIGURACAO', 'PORTA', edt2Porta.Text);
 
-      fdConnection.Params.Clear;
-      fdConnection.Params.UserName := edt4User.Text;
-      fdConnection.Params.Password := edt5Pass.Text;
-      fdConnection.Params.Add('DriverID=PG');
-      fdConnection.Params.Add('Database=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'BASE'));
-      fdConnection.Params.Add('Port=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'PORTA'));
-      fdConnection.Params.Add('Server=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'SERVER'));
+      XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Clear;
+      XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.UserName := edt4User.Text;
+      XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Password := edt5Pass.Text;
+      XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Add('DriverID=PG');
+      XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Add('Database=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'BASE'));
+      XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Add('Port=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'PORTA'));
+      XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Add('Server=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'SERVER'));
 
     try
-      fdConnection.Connected := True;
+      XmlInutilizacao.View.Conexao.dmDados.fdConnection.Connected := True;
       DesativarControles;
 
       DatePicker1Inicial.Enabled := True;
@@ -174,7 +172,7 @@ begin
 
       Application.MessageBox('Conexão Realizada!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
     except
-      Application.MessageBox('Erro na Conexão! Verifique as informações de conexão!', 'XML INUTILIZAÇÃO', MB_OK + MB_ICONWARNING);
+      Application.MessageBox('Erro na Conexão! Verifique as informações de conexão!', 'XML Inutilização', MB_OK + MB_ICONWARNING);
     end;
     end;
   end;
@@ -229,11 +227,6 @@ begin
   ButtonConectarClick(Sender);
 end;
 
-procedure TfrmPrincipal.fdPgLinkDriverCreated(Sender: TObject);
-begin
-    fdPgLink.VendorHome := ExtractFilePath(Application.ExeName);
-end;
-
 procedure TfrmPrincipal.AtivarControles;
 begin
     edt1Ip.Enabled := True;
@@ -277,7 +270,6 @@ end;
 
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
-    fdPgLink.VendorHome := ExtractFilePath(Application.ExeName);
     edt1Ip.Text := GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'SERVER');
     edt2Porta.Text := GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'PORTA');
     edt3Base.Text := GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'BASE');

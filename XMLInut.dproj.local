@@ -14,8 +14,11 @@
     <Transaction>2024/05/02 15:39:20.000.031,=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas</Transaction>
     <Transaction>2024/05/02 15:39:28.000.788,C:\Users\Usuario\Documents\XMLInutilizacao\Classes\uLib.pas=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas</Transaction>
     <Transaction>2024/05/02 15:41:46.000.980,=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas</Transaction>
-    <Transaction>2024/05/02 15:42:14.000.048,C:\Users\Usuario\Documents\XMLInutilizacao\src\Model\XmlInutilizacao.View.Conexao.pas=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas</Transaction>
     <Transaction>2024/05/02 15:42:14.000.048,C:\Users\Usuario\Documents\XMLInutilizacao\src\Model\XmlInutilizacao.View.Conexao.dfm=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.dfm</Transaction>
+    <Transaction>2024/05/02 15:42:14.000.048,C:\Users\Usuario\Documents\XMLInutilizacao\src\Model\XmlInutilizacao.View.Conexao.pas=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas</Transaction>
     <Transaction>2024/05/03 17:04:36.000.163,C:\Users\Usuario\Documents\XMLInutilizacao\src\Model\XmlInutilizacao.View.Conexao.pas=</Transaction>
+    <Transaction>2024/05/03 20:19:55.000.613,=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.pas</Transaction>
+    <Transaction>2024/05/03 20:20:21.000.801,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.dfm=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\src\Model\XmlInutilizacao.View.Conexao.dfm</Transaction>
+    <Transaction>2024/05/03 20:20:21.000.801,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.pas=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\src\Model\XmlInutilizacao.View.Conexao.pas</Transaction>
   </Transactions>
 </BorlandProject>

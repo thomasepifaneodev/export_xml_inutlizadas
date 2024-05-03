@@ -994,20 +994,11 @@ object frmPrincipal: TfrmPrincipal
     Left = 904
     Top = 465
   end
-  object fdPgLink: TFDPhysPgDriverLink
-    OnDriverCreated = fdPgLinkDriverCreated
-    Left = 672
-    Top = 587
-  end
   object fdQuery: TFDQuery
-    Connection = fdConnection
+    Connection = dmDados.fdConnection
     FetchOptions.AssignedValues = [evRowsetSize]
     FetchOptions.RowsetSize = 100000
     Left = 731
-    Top = 587
-  end
-  object fdConnection: TFDConnection
-    Left = 599
     Top = 587
   end
 end
