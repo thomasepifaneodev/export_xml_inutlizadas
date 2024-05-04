@@ -2,10 +2,10 @@ object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
-  BorderStyle = bsSingle
+  BorderStyle = bsNone
   Caption = 'Export Inutiliza'#231#227'o'
-  ClientHeight = 637
-  ClientWidth = 1002
+  ClientHeight = 676
+  ClientWidth = 1018
   Color = clHighlight
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,6 +13,7 @@ object frmPrincipal: TfrmPrincipal
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
+  Visible = True
   StyleName = 'Windows'
   OnCreate = FormCreate
   OnShow = FormShow
@@ -20,7 +21,7 @@ object frmPrincipal: TfrmPrincipal
   object pnlConection: TPanel
     Left = 0
     Top = 0
-    Width = 1002
+    Width = 1018
     Height = 140
     Align = alTop
     BevelOuter = bvNone
@@ -28,6 +29,7 @@ object frmPrincipal: TfrmPrincipal
     ParentBackground = False
     TabOrder = 0
     StyleName = 'Windows'
+    ExplicitWidth = 1002
     object Label1: TLabel
       AlignWithMargins = True
       Left = 535
@@ -244,8 +246,8 @@ object frmPrincipal: TfrmPrincipal
   end
   object pnlBottom: TPanel
     Left = 0
-    Top = 587
-    Width = 1002
+    Top = 626
+    Width = 1018
     Height = 50
     Align = alBottom
     BevelOuter = bvNone
@@ -253,12 +255,13 @@ object frmPrincipal: TfrmPrincipal
     ParentBackground = False
     TabOrder = 1
     StyleName = 'Windows'
+    ExplicitTop = 587
+    ExplicitWidth = 1002
     object lblRows: TLabel
       Left = 290
       Top = 12
-      Width = 37
+      Width = 6
       Height = 21
-      Caption = 'teste'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -289,7 +292,7 @@ object frmPrincipal: TfrmPrincipal
       OnClick = btn1ExportClick
     end
     object btn3Exit: TButton
-      Left = 897
+      Left = 913
       Top = 9
       Width = 100
       Height = 30
@@ -308,6 +311,7 @@ object frmPrincipal: TfrmPrincipal
       Images = imgList
       ParentFont = False
       TabOrder = 1
+      StyleName = 'Windows'
       OnClick = btn3ExitClick
     end
     object btn4Checar: TButton
@@ -337,8 +341,8 @@ object frmPrincipal: TfrmPrincipal
     AlignWithMargins = True
     Left = 5
     Top = 145
-    Width = 992
-    Height = 437
+    Width = 1008
+    Height = 476
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -349,11 +353,13 @@ object frmPrincipal: TfrmPrincipal
     ParentBackground = False
     TabOrder = 2
     StyleName = 'Windows'
+    ExplicitWidth = 992
+    ExplicitHeight = 437
     object dbGridPrincipal: TDBGrid
       Left = 0
       Top = 0
-      Width = 992
-      Height = 437
+      Width = 1008
+      Height = 476
       Margins.Left = 20
       Margins.Top = 20
       Margins.Right = 20
@@ -995,20 +1001,11 @@ object frmPrincipal: TfrmPrincipal
     Left = 904
     Top = 465
   end
-  object fdPgLink: TFDPhysPgDriverLink
-    OnDriverCreated = fdPgLinkDriverCreated
-    Left = 672
-    Top = 587
-  end
   object fdQuery: TFDQuery
-    Connection = fdConnection
+    Connection = dmDados.fdConnection
     FetchOptions.AssignedValues = [evRowsetSize]
     FetchOptions.RowsetSize = 100000
     Left = 731
-    Top = 587
-  end
-  object fdConnection: TFDConnection
-    Left = 599
     Top = 587
   end
 end

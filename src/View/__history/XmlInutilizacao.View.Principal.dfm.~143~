@@ -13,6 +13,7 @@ object frmPrincipal: TfrmPrincipal
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
+  Visible = True
   StyleName = 'Windows'
   OnCreate = FormCreate
   OnShow = FormShow
@@ -307,6 +308,7 @@ object frmPrincipal: TfrmPrincipal
       Images = imgList
       ParentFont = False
       TabOrder = 1
+      StyleName = 'Windows'
       OnClick = btn3ExitClick
     end
     object btn4Checar: TButton
@@ -995,6 +997,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 465
   end
   object fdQuery: TFDQuery
+    Connection = dmDados.fdConnection
     FetchOptions.AssignedValues = [evRowsetSize]
     FetchOptions.RowsetSize = 100000
     Left = 731

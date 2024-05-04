@@ -6,13 +6,14 @@ object frmPrincipal: TfrmPrincipal
   Caption = 'Export Inutiliza'#231#227'o'
   ClientHeight = 637
   ClientWidth = 1002
-  Color = clHighlight
+  Color = clSkyBlue
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
+  Visible = True
   StyleName = 'Windows'
   OnCreate = FormCreate
   OnShow = FormShow
@@ -24,7 +25,7 @@ object frmPrincipal: TfrmPrincipal
     Height = 140
     Align = alTop
     BevelOuter = bvNone
-    Color = clHighlight
+    Color = clSkyBlue
     ParentBackground = False
     TabOrder = 0
     StyleName = 'Windows'
@@ -249,10 +250,13 @@ object frmPrincipal: TfrmPrincipal
     Height = 50
     Align = alBottom
     BevelOuter = bvNone
-    Color = clHighlight
+    Color = clSkyBlue
     ParentBackground = False
     TabOrder = 1
     StyleName = 'Windows'
+    DesignSize = (
+      1002
+      50)
     object lblRows: TLabel
       Left = 290
       Top = 12
@@ -266,7 +270,7 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
     end
     object btn1Export: TButton
-      Left = 109
+      Left = 107
       Top = 9
       Width = 100
       Height = 30
@@ -288,25 +292,31 @@ object frmPrincipal: TfrmPrincipal
       OnClick = btn1ExportClick
     end
     object btn3Exit: TButton
-      Left = 897
-      Top = 9
+      Left = 899
+      Top = 10
       Width = 100
       Height = 30
       Cursor = crHandPoint
-      Margins.Left = 0
-      Margins.Top = 0
-      Margins.Right = 0
-      Margins.Bottom = 0
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Anchors = []
+      BiDiMode = bdLeftToRight
       Caption = 'Sair'
-      Font.Charset = DEFAULT_CHARSET
+      DoubleBuffered = False
+      Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ImageIndex = 2
       Images = imgList
+      ParentBiDiMode = False
+      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 1
+      StyleName = 'Windows'
       OnClick = btn3ExitClick
     end
     object btn4Checar: TButton
@@ -361,7 +371,7 @@ object frmPrincipal: TfrmPrincipal
       BorderStyle = bsNone
       DataSource = dataSource
       DrawingStyle = gdsGradient
-      GradientEndColor = clHighlight
+      GradientEndColor = clSkyBlue
       Options = [dgTitles, dgColLines, dgRowLines, dgTabs, dgMultiSelect, dgTitleClick, dgTitleHotTrack]
       ParentShowHint = False
       ReadOnly = True

@@ -256,9 +256,8 @@ object frmPrincipal: TfrmPrincipal
     object lblRows: TLabel
       Left = 290
       Top = 12
-      Width = 37
+      Width = 6
       Height = 21
-      Caption = 'teste'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -349,7 +348,7 @@ object frmPrincipal: TfrmPrincipal
     ParentBackground = False
     TabOrder = 2
     StyleName = 'Windows'
-    object Ro: TDBGrid
+    object dbGridPrincipal: TDBGrid
       Left = 0
       Top = 0
       Width = 992
@@ -995,20 +994,11 @@ object frmPrincipal: TfrmPrincipal
     Left = 904
     Top = 465
   end
-  object fdPgLink: TFDPhysPgDriverLink
-    OnDriverCreated = fdPgLinkDriverCreated
-    Left = 672
-    Top = 587
-  end
   object fdQuery: TFDQuery
-    Connection = fdConnection
+    Connection = dmDados.fdConnection
     FetchOptions.AssignedValues = [evRowsetSize]
-    FetchOptions.RowsetSize = -1
+    FetchOptions.RowsetSize = 100000
     Left = 731
-    Top = 587
-  end
-  object fdConnection: TFDConnection
-    Left = 599
     Top = 587
   end
 end

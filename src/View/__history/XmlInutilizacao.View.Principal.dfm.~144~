@@ -13,6 +13,7 @@ object frmPrincipal: TfrmPrincipal
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
+  Visible = True
   StyleName = 'Windows'
   OnCreate = FormCreate
   OnShow = FormShow
@@ -253,12 +254,14 @@ object frmPrincipal: TfrmPrincipal
     ParentBackground = False
     TabOrder = 1
     StyleName = 'Windows'
+    DesignSize = (
+      1002
+      50)
     object lblRows: TLabel
       Left = 290
       Top = 12
-      Width = 37
+      Width = 6
       Height = 21
-      Caption = 'teste'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -267,9 +270,9 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
     end
     object btn1Export: TButton
-      Left = 109
+      Left = 99
       Top = 9
-      Width = 100
+      Width = 90
       Height = 30
       Cursor = crHandPoint
       Margins.Left = 0
@@ -289,31 +292,37 @@ object frmPrincipal: TfrmPrincipal
       OnClick = btn1ExportClick
     end
     object btn3Exit: TButton
-      Left = 897
-      Top = 9
-      Width = 100
+      Left = 907
+      Top = 10
+      Width = 90
       Height = 30
       Cursor = crHandPoint
-      Margins.Left = 0
-      Margins.Top = 0
-      Margins.Right = 0
-      Margins.Bottom = 0
+      Margins.Left = 5
+      Margins.Top = 5
+      Margins.Right = 5
+      Margins.Bottom = 5
+      Anchors = []
+      BiDiMode = bdLeftToRight
       Caption = 'Sair'
-      Font.Charset = DEFAULT_CHARSET
+      DoubleBuffered = False
+      Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ImageIndex = 2
       Images = imgList
+      ParentBiDiMode = False
+      ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 1
+      StyleName = 'Windows'
       OnClick = btn3ExitClick
     end
     object btn4Checar: TButton
       Left = 5
       Top = 9
-      Width = 100
+      Width = 90
       Height = 30
       Cursor = crHandPoint
       Margins.Left = 0
@@ -995,20 +1004,11 @@ object frmPrincipal: TfrmPrincipal
     Left = 904
     Top = 465
   end
-  object fdPgLink: TFDPhysPgDriverLink
-    OnDriverCreated = fdPgLinkDriverCreated
-    Left = 672
-    Top = 587
-  end
   object fdQuery: TFDQuery
-    Connection = fdConnection
+    Connection = dmDados.fdConnection
     FetchOptions.AssignedValues = [evRowsetSize]
-    FetchOptions.RowsetSize = -1
+    FetchOptions.RowsetSize = 100000
     Left = 731
-    Top = 587
-  end
-  object fdConnection: TFDConnection
-    Left = 599
     Top = 587
   end
 end
