@@ -71,9 +71,7 @@ implementation
 uses
   System.SysUtils;
 
-
 {$R *.dfm}
-
 
 procedure TfrmPrincipal.InicializarControles;
 begin
@@ -112,6 +110,10 @@ end;
 procedure TfrmPrincipal.PreencherTextBoxes;
 begin
   lblAno.Text := IntToStr(YearOf(Now));
+  lblModel.Text := '55';
+  lblSerie.Text := '1';
+  lblNinicial.Text := '1';
+  lblNfinal.Text := '1';
 end;
 
 procedure TfrmPrincipal.FecharApp;
@@ -124,7 +126,18 @@ end;
 
 procedure TfrmPrincipal.btn4ChecarClick(Sender: TObject);
 begin
+  if (lblAno.Text <> '') AND (lblModel.Text <> '')  AND (lblSerie.Text <> '') AND (lblNinicial.Text <> '') AND (lblNfinal.Text <> '') then
+
+  dmDados.FiltroInutilizacao(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date),
+  lblSerie.Text, lblModel.Text, StrToInt(lblNinicial.Text), StrToInt(lblNfinal.Text), StrToInt(lblAno.Text))
+
+  else
+  begin
+
   dmDados.FiltroXML(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date));
+
+  end;
+
   ShowScrollBar(dbGridPrincipal.Handle,SB_VERT,False);
   lblRows.Caption := 'Total de registros: ' + dbGridPrincipal.DataSource.DataSet.RecordCount.ToString;
 end;

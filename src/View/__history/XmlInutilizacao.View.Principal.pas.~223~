@@ -39,8 +39,8 @@ type
     lblAno: TLabeledEdit;
     lblModel: TLabeledEdit;
     lblSerie: TLabeledEdit;
-    lblNfinal: TLabeledEdit;
     lblNinicial: TLabeledEdit;
+    lblNfinal: TLabeledEdit;
     procedure edt5PassKeyPress(Sender: TObject; var Key: Char);
     procedure edt1IpKeyPress(Sender: TObject; var Key: Char);
     procedure edt2PortaKeyPress(Sender: TObject; var Key: Char);
@@ -51,6 +51,10 @@ type
     procedure btn4ChecarClick(Sender: TObject);
     procedure btn1ExportClick(Sender: TObject);
     procedure ButtonConectarClick(Sender: TObject);
+    procedure lblAnoKeyPress(Sender: TObject; var Key: Char);
+    procedure lblModelKeyPress(Sender: TObject; var Key: Char);
+    procedure lblSerieKeyPress(Sender: TObject; var Key: Char);
+    procedure lblNinicialKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     procedure InicializarControles;
@@ -59,6 +63,7 @@ type
     procedure ObterDadosIni;
     procedure ChecaCampos;
     procedure PreencherTextBoxes;
+    procedure LimparCampos;
   public
     { Public declarations }
   end;
@@ -126,17 +131,18 @@ end;
 
 procedure TfrmPrincipal.btn4ChecarClick(Sender: TObject);
 begin
-  if (lblAno.Text <> '') AND
-  (lblModel.Text <> '')  AND
-  (lblSerie.Text <> '') AND
-  (lblNinicial.Text <> '') AND
-  (lblNfinal.Text <> '') then
+  if (lblAno.Text <> '') AND (lblModel.Text <> '')  AND (lblSerie.Text <> '') AND (lblNinicial.Text <> '') AND (lblNfinal.Text <> '') then
+
   dmDados.FiltroInutilizacao(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date),
   lblSerie.Text, lblModel.Text, StrToInt(lblNinicial.Text), StrToInt(lblNfinal.Text), StrToInt(lblAno.Text))
+
   else
   begin
+
   dmDados.FiltroXML(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date));
+
   end;
+
   ShowScrollBar(dbGridPrincipal.Handle,SB_VERT,False);
   lblRows.Caption := 'Total de registros: ' + dbGridPrincipal.DataSource.DataSet.RecordCount.ToString;
 end;
@@ -156,6 +162,7 @@ begin
     if dmDados.fdConnection.Connected then
     begin
       Application.MessageBox('Conexão Realizada!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
+      lblAno.SetFocus;
     end;
   except
     on e: Exception do
@@ -176,6 +183,7 @@ end;
 procedure TfrmPrincipal.btn1ExportClick(Sender: TObject);
 begin;
   dmDados.ExportFiltroXML;
+  LimparCampos;
 end;
 
 procedure TfrmPrincipal.btn3ExitClick(Sender: TObject);
@@ -211,6 +219,36 @@ procedure TfrmPrincipal.edt5PassKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 Then
   ButtonConectarClick(Sender);
+end;
+
+procedure TfrmPrincipal.lblAnoKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 Then
+  lblModel.SetFocus;
+end;
+
+procedure TfrmPrincipal.lblModelKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 Then
+  lblSerie.SetFocus;
+end;
+
+procedure TfrmPrincipal.lblNinicialKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 Then
+  lblNfinal.SetFocus;
+end;
+
+procedure TfrmPrincipal.lblSerieKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 Then
+  lblNinicial.SetFocus;
+end;
+
+procedure TfrmPrincipal.LimparCampos;
+begin
+  dbGridPrincipal.DataSource.DataSet.ClearFields;
+  lblRows.Caption := 'Total de registros: ' + dbGridPrincipal.DataSource.DataSet.RecordCount.ToString;
 end;
 
 procedure TfrmPrincipal.FormShow(Sender: TObject);

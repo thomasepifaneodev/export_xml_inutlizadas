@@ -39,8 +39,8 @@ type
     lblAno: TLabeledEdit;
     lblModel: TLabeledEdit;
     lblSerie: TLabeledEdit;
-    lblNfinal: TLabeledEdit;
     lblNinicial: TLabeledEdit;
+    lblNfinal: TLabeledEdit;
     procedure edt5PassKeyPress(Sender: TObject; var Key: Char);
     procedure edt1IpKeyPress(Sender: TObject; var Key: Char);
     procedure edt2PortaKeyPress(Sender: TObject; var Key: Char);
@@ -126,13 +126,18 @@ end;
 
 procedure TfrmPrincipal.btn4ChecarClick(Sender: TObject);
 begin
-  if (lblAno.Text <> '') or
-  (lblModel.Text <> '')  or
-  (lblSerie.Text <> '') or
-  (lblNinicial.Text <> '') or
-  (lblNfinal.Text <> '') then
-  dmDados.FiltroInutilizacao(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date), lblSerie.Text, lblModel.Text, lblNinicial.Text, lblNfinal.Text, lblAno.Text);
+  if (lblAno.Text <> '') AND (lblModel.Text <> '')  AND (lblSerie.Text <> '') AND (lblNinicial.Text <> '') AND (lblNfinal.Text <> '') then
+
+  dmDados.FiltroInutilizacao(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date),
+  lblSerie.Text, lblModel.Text, StrToInt(lblNinicial.Text), StrToInt(lblNfinal.Text), StrToInt(lblAno.Text))
+
+  else
+  begin
+
   dmDados.FiltroXML(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date));
+
+  end;
+
   ShowScrollBar(dbGridPrincipal.Handle,SB_VERT,False);
   lblRows.Caption := 'Total de registros: ' + dbGridPrincipal.DataSource.DataSet.RecordCount.ToString;
 end;
@@ -152,6 +157,7 @@ begin
     if dmDados.fdConnection.Connected then
     begin
       Application.MessageBox('Conexão Realizada!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
+      lblAno.SetFocus;
     end;
   except
     on e: Exception do

@@ -263,9 +263,10 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       TabOrder = 8
       Text = ''
+      OnKeyPress = lblAnoKeyPress
     end
     object lblModel: TLabeledEdit
-      Left = 119
+      Left = 120
       Top = 111
       Width = 85
       Height = 25
@@ -286,9 +287,10 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       TabOrder = 9
       Text = ''
+      OnKeyPress = lblModelKeyPress
     end
     object lblSerie: TLabeledEdit
-      Left = 234
+      Left = 235
       Top = 111
       Width = 85
       Height = 25
@@ -309,15 +311,16 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       TabOrder = 10
       Text = ''
+      OnKeyPress = lblSerieKeyPress
     end
-    object lblNfinal: TLabeledEdit
-      Left = 464
-      Top = 111
+    object lblNinicial: TLabeledEdit
+      Left = 348
+      Top = 112
       Width = 85
       Height = 25
-      EditLabel.Width = 57
+      EditLabel.Width = 66
       EditLabel.Height = 17
-      EditLabel.Caption = 'N'#186' FINAL'
+      EditLabel.Caption = 'N'#186' INICIAL'
       EditLabel.Font.Charset = DEFAULT_CHARSET
       EditLabel.Font.Color = clWindowText
       EditLabel.Font.Height = -13
@@ -332,15 +335,16 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       TabOrder = 11
       Text = ''
+      OnKeyPress = lblNinicialKeyPress
     end
-    object lblNinicial: TLabeledEdit
-      Left = 349
-      Top = 111
+    object lblNfinal: TLabeledEdit
+      Left = 466
+      Top = 112
       Width = 85
       Height = 25
-      EditLabel.Width = 66
+      EditLabel.Width = 57
       EditLabel.Height = 17
-      EditLabel.Caption = 'N'#186' INICIAL'
+      EditLabel.Caption = 'N'#186' FINAL'
       EditLabel.Font.Charset = DEFAULT_CHARSET
       EditLabel.Font.Color = clWindowText
       EditLabel.Font.Height = -13
@@ -403,6 +407,7 @@ object frmPrincipal: TfrmPrincipal
       Images = imgList
       ParentFont = False
       TabOrder = 0
+      TabStop = False
       OnClick = btn1ExportClick
     end
     object btn3Exit: TButton
@@ -430,6 +435,7 @@ object frmPrincipal: TfrmPrincipal
       ParentDoubleBuffered = False
       ParentFont = False
       TabOrder = 1
+      TabStop = False
       StyleName = 'Windows'
       OnClick = btn3ExitClick
     end
@@ -453,6 +459,7 @@ object frmPrincipal: TfrmPrincipal
       Images = imgList
       ParentFont = False
       TabOrder = 2
+      TabStop = False
       OnClick = btn4ChecarClick
     end
   end

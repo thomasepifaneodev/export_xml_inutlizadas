@@ -39,8 +39,8 @@ type
     lblAno: TLabeledEdit;
     lblModel: TLabeledEdit;
     lblSerie: TLabeledEdit;
-    lblNfinal: TLabeledEdit;
     lblNinicial: TLabeledEdit;
+    lblNfinal: TLabeledEdit;
     procedure edt5PassKeyPress(Sender: TObject; var Key: Char);
     procedure edt1IpKeyPress(Sender: TObject; var Key: Char);
     procedure edt2PortaKeyPress(Sender: TObject; var Key: Char);
@@ -51,6 +51,10 @@ type
     procedure btn4ChecarClick(Sender: TObject);
     procedure btn1ExportClick(Sender: TObject);
     procedure ButtonConectarClick(Sender: TObject);
+    procedure lblAnoKeyPress(Sender: TObject; var Key: Char);
+    procedure lblModelKeyPress(Sender: TObject; var Key: Char);
+    procedure lblSerieKeyPress(Sender: TObject; var Key: Char);
+    procedure lblNinicialKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     procedure InicializarControles;
@@ -59,6 +63,7 @@ type
     procedure ObterDadosIni;
     procedure ChecaCampos;
     procedure PreencherTextBoxes;
+    procedure LimparCampos;
   public
     { Public declarations }
   end;
@@ -72,6 +77,12 @@ uses
   System.SysUtils;
 
 {$R *.dfm}
+
+procedure TfrmPrincipal.LimparCampos;
+begin
+  dbGridPrincipal.DataSource.DataSet.Close;
+  lblRows.Caption := 'Total de registros: ' + dbGridPrincipal.DataSource.DataSet.RecordCount.ToString;
+end;
 
 procedure TfrmPrincipal.InicializarControles;
 begin
@@ -118,7 +129,7 @@ end;
 
 procedure TfrmPrincipal.FecharApp;
 begin
-  if Application.MessageBox('Deseja realmente fechar o app?', 'XML Inutilização', MB_YESNO + MB_ICONQUESTION) = IDYES then
+  if Application.MessageBox('Deseja realmente fechar o aplicativo?', 'XML Inutilização', MB_YESNO + MB_ICONQUESTION) = IDYES then
 begin
   Application.Terminate;
 end;
@@ -149,6 +160,7 @@ begin
     dmDados.fdConnection.Connected := False;
     Application.MessageBox('Desconectado!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
     InicializarControles;
+    LimparCampos;
   end
   else
   try
@@ -157,6 +169,7 @@ begin
     if dmDados.fdConnection.Connected then
     begin
       Application.MessageBox('Conexão Realizada!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
+      lblAno.SetFocus;
     end;
   except
     on e: Exception do
@@ -177,6 +190,7 @@ end;
 procedure TfrmPrincipal.btn1ExportClick(Sender: TObject);
 begin;
   dmDados.ExportFiltroXML;
+  LimparCampos;
 end;
 
 procedure TfrmPrincipal.btn3ExitClick(Sender: TObject);
@@ -212,6 +226,30 @@ procedure TfrmPrincipal.edt5PassKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 Then
   ButtonConectarClick(Sender);
+end;
+
+procedure TfrmPrincipal.lblAnoKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 Then
+  lblModel.SetFocus;
+end;
+
+procedure TfrmPrincipal.lblModelKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 Then
+  lblSerie.SetFocus;
+end;
+
+procedure TfrmPrincipal.lblNinicialKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 Then
+  lblNfinal.SetFocus;
+end;
+
+procedure TfrmPrincipal.lblSerieKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 Then
+  lblNinicial.SetFocus;
 end;
 
 procedure TfrmPrincipal.FormShow(Sender: TObject);

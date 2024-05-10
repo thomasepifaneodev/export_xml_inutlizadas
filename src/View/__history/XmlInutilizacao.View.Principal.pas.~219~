@@ -39,8 +39,8 @@ type
     lblAno: TLabeledEdit;
     lblModel: TLabeledEdit;
     lblSerie: TLabeledEdit;
-    lblNfinal: TLabeledEdit;
     lblNinicial: TLabeledEdit;
+    lblNfinal: TLabeledEdit;
     procedure edt5PassKeyPress(Sender: TObject; var Key: Char);
     procedure edt1IpKeyPress(Sender: TObject; var Key: Char);
     procedure edt2PortaKeyPress(Sender: TObject; var Key: Char);
@@ -71,9 +71,7 @@ implementation
 uses
   System.SysUtils;
 
-
 {$R *.dfm}
-
 
 procedure TfrmPrincipal.InicializarControles;
 begin
@@ -110,13 +108,12 @@ begin
 end;
 
 procedure TfrmPrincipal.PreencherTextBoxes;
-var
-  Date : TDateTime;
-  Ano : Word;
 begin
-  Date := Now;
-  Ano := YearOf(Date);
-  lblAno.Text := DateToStr(Ano);
+  lblAno.Text := IntToStr(YearOf(Now));
+  lblModel.Text := '55';
+  lblSerie.Text := '1';
+  lblNinicial.Text := '1';
+  lblNfinal.Text := '1';
 end;
 
 procedure TfrmPrincipal.FecharApp;
@@ -129,7 +126,18 @@ end;
 
 procedure TfrmPrincipal.btn4ChecarClick(Sender: TObject);
 begin
+  if (lblAno.Text <> '') AND (lblModel.Text <> '')  AND (lblSerie.Text <> '') AND (lblNinicial.Text <> '') AND (lblNfinal.Text <> '') then
+
+  dmDados.FiltroInutilizacao(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date),
+  lblSerie.Text, lblModel.Text, StrToInt(lblNinicial.Text), StrToInt(lblNfinal.Text), StrToInt(lblAno.Text))
+
+  else
+  begin
+
   dmDados.FiltroXML(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date));
+
+  end;
+
   ShowScrollBar(dbGridPrincipal.Handle,SB_VERT,False);
   lblRows.Caption := 'Total de registros: ' + dbGridPrincipal.DataSource.DataSet.RecordCount.ToString;
 end;
