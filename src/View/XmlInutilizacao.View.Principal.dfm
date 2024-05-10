@@ -218,6 +218,7 @@ object frmPrincipal: TfrmPrincipal
       Top = 111
       Width = 105
       Height = 25
+      Date = 45422.000000000000000000
       DateFormat = 'dd/mm/yyyy'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -231,6 +232,7 @@ object frmPrincipal: TfrmPrincipal
       Top = 111
       Width = 105
       Height = 25
+      Date = 45422.000000000000000000
       DateFormat = 'dd/mm/yyyy'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -370,7 +372,7 @@ object frmPrincipal: TfrmPrincipal
       1002
       50)
     object lblRows: TLabel
-      Left = 290
+      Left = 426
       Top = 12
       Width = 6
       Height = 21

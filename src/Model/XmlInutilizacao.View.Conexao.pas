@@ -50,8 +50,9 @@ begin
   fdQuery.SQL.Add('AND ano = ' + IntToStr(Ano));
   fdQuery.SQL.Add('AND serie = ' + '''' + Serie + '''');
   fdQuery.SQL.Add('AND modelonf_codigo = ' + '''' + Modelo + '''');
-  fdQuery.SQL.Add('AND numeroinicial BETWEEN ' + IntToStr(NumeroInicial) + ' AND ' + IntToStr(NumeroFinal));
-  fdQuery.SQL.Add('AND numerofinal BETWEEN ' + IntToStr(NumeroInicial) + ' AND ' + IntToStr(NumeroFinal));
+  fdQuery.SQL.Add('AND( numeroinicial BETWEEN ' + IntToStr(NumeroInicial) + ' AND ' + IntToStr(NumeroFinal));
+  fdQuery.SQL.Add('OR numerofinal BETWEEN ' + IntToStr(NumeroInicial) + ' AND ' + IntToStr(NumeroFinal) + ')');
+
   fdQuery.Open;
 
 end;
