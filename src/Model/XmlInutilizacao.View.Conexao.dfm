@@ -13,8 +13,9 @@ object dmDados: TdmDados
   end
   object fdQuery: TFDQuery
     Connection = fdConnection
-    FetchOptions.AssignedValues = [evRowsetSize]
+    FetchOptions.AssignedValues = [evRowsetSize, evCursorKind]
     FetchOptions.RowsetSize = 100000
+    ResourceOptions.AssignedValues = [rvSilentMode]
     Left = 400
     Top = 192
   end

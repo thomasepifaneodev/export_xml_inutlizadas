@@ -41,6 +41,7 @@ type
     lblSerie: TLabeledEdit;
     lblNinicial: TLabeledEdit;
     lblNfinal: TLabeledEdit;
+    checkBox: TCheckBox;
     procedure edt5PassKeyPress(Sender: TObject; var Key: Char);
     procedure edt1IpKeyPress(Sender: TObject; var Key: Char);
     procedure edt2PortaKeyPress(Sender: TObject; var Key: Char);
@@ -55,6 +56,7 @@ type
     procedure lblModelKeyPress(Sender: TObject; var Key: Char);
     procedure lblSerieKeyPress(Sender: TObject; var Key: Char);
     procedure lblNinicialKeyPress(Sender: TObject; var Key: Char);
+    procedure checkBoxClick(Sender: TObject);
   private
     { Private declarations }
     procedure InicializarControles;
@@ -62,8 +64,8 @@ type
     procedure FecharApp;
     procedure ObterDadosIni;
     procedure ChecaCampos;
-    procedure PreencherTextBoxes;
     procedure LimparCampos;
+    procedure CheckFiltros;
   public
     { Public declarations }
   end;
@@ -93,6 +95,12 @@ begin
   edt5Pass.Enabled := True;
   btn1Export.Enabled := False;
   btn4Checar.Enabled := False;
+  lblAno.Enabled := False;
+  lblModel.Enabled := False;
+  lblSerie.Enabled := False;
+  lblNinicial.Enabled := False;
+  lblNfinal.Enabled := False;
+  checkBox.Enabled := False;
   ButtonConectar.Caption := 'Conectar';
 end;
 
@@ -107,6 +115,7 @@ begin
   DatePicker2Final.Enabled := True;
   btn1Export.Enabled := True;
   btn4Checar.Enabled := True;
+  checkBox.Enabled := True;
   ButtonConectar.Caption := 'Desconectar';
 end;
 
@@ -118,15 +127,6 @@ begin
   edt4User.Text := GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'USER_C');
 end;
 
-procedure TfrmPrincipal.PreencherTextBoxes;
-begin
-  lblAno.Text := IntToStr(YearOf(Now));
-  lblModel.Text := '55';
-  lblSerie.Text := '1';
-  lblNinicial.Text := '1';
-  lblNfinal.Text := '1';
-end;
-
 procedure TfrmPrincipal.FecharApp;
 begin
   if Application.MessageBox('Deseja realmente fechar o aplicativo?', 'XML Inutilização', MB_YESNO + MB_ICONQUESTION) = IDYES then
@@ -135,25 +135,66 @@ begin
 end;
 end;
 
+procedure TfrmPrincipal.ChecaCampos;
+begin
+  if (edt3Base.Text <> '') or (edt2Porta.Text <> '') or (edt4User.Text <> '') or (edt1Ip.Text <> '') and (edt5Pass.Text = '') then
+    edt5Pass.SetFocus
+  else
+    edt1Ip.SetFocus;
+end;
+
+procedure TfrmPrincipal.CheckFiltros;
+begin
+  if checkBox.Checked then
+  begin
+    lblAno.Text := IntToStr(YearOf(Now));
+    lblModel.Text := '55';
+    lblSerie.Text := '1';
+    lblNinicial.Text := '1';
+    lblNfinal.Text := '1';
+    lblAno.Enabled := True;
+    lblModel.Enabled := True;
+    lblSerie.Enabled := True;
+    lblNinicial.Enabled := True;
+    lblNfinal.Enabled := True;
+  end
+  else if checkBox.Checked = False then
+  begin
+    lblAno.Text := '';
+    lblModel.Text := '';
+    lblSerie.Text := '';
+    lblNinicial.Text := '';
+    lblNfinal.Text := '';
+    lblAno.Enabled := False;
+    lblModel.Enabled := False;
+    lblSerie.Enabled := False;
+    lblNinicial.Enabled := False;
+    lblNfinal.Enabled := False;
+  end;
+end;
+
 procedure TfrmPrincipal.btn4ChecarClick(Sender: TObject);
 begin
-  if (lblAno.Text <> '') AND (lblModel.Text <> '')  AND (lblSerie.Text <> '') AND (lblNinicial.Text <> '') AND (lblNfinal.Text <> '') then
-
-  dmDados.FiltroInutilizacao(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date),
-  lblSerie.Text, lblModel.Text, StrToInt(lblNinicial.Text), StrToInt(lblNfinal.Text), StrToInt(lblAno.Text))
-
+  if checkBox.Checked then
+  begin
+    if (lblAno.Text = '') OR (lblModel.Text = '')  OR (lblSerie.Text = '') OR (lblNinicial.Text = '') OR (lblNfinal.Text = '') then
+  begin
+    Application.MessageBox('Todos os campos dos filtros devem ser preenchidos!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
+  end
+  else
+    dmDados.FiltroInutilizacao(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date),
+    lblSerie.Text, lblModel.Text, StrToInt(lblNinicial.Text), StrToInt(lblNfinal.Text), StrToInt(lblAno.Text));
+  end
   else
   begin
-
-  dmDados.FiltroXML(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date));
-
+    dmDados.FiltroXML(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date));
   end;
-
-  ShowScrollBar(dbGridPrincipal.Handle,SB_VERT,False);
-  lblRows.Caption := 'Total de registros: ' + dbGridPrincipal.DataSource.DataSet.RecordCount.ToString;
+    ShowScrollBar(dbGridPrincipal.Handle,SB_VERT,False);
+    lblRows.Caption := 'Total de registros: ' + dbGridPrincipal.DataSource.DataSet.RecordCount.ToString;
 end;
 
 procedure TfrmPrincipal.ButtonConectarClick(Sender: TObject);
+var Messagem : PWideChar;
 begin
   if ButtonConectar.Caption = 'Desconectar' then
   begin
@@ -169,22 +210,18 @@ begin
     if dmDados.fdConnection.Connected then
     begin
       Application.MessageBox('Conexão Realizada!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
-      lblAno.SetFocus;
     end;
   except
-    on e: Exception do
+      on e: Exception do
     begin
-      Application.MessageBox('Erro na Conexão!', 'XML Inutilização', MB_OK + MB_ICONWARNING);
+      Application.MessageBox('Erro na Conexão', 'XML Inutilização', MB_OK + MB_ICONWARNING);
     end;
   end;
 end;
 
-procedure TfrmPrincipal.ChecaCampos;
+procedure TfrmPrincipal.checkBoxClick(Sender: TObject);
 begin
-  if (edt3Base.Text <> '') or (edt2Porta.Text <> '') or (edt4User.Text <> '') or (edt1Ip.Text <> '') and (edt5Pass.Text = '') then
-    edt5Pass.SetFocus
-  else
-    edt1Ip.SetFocus;
+  CheckFiltros;
 end;
 
 procedure TfrmPrincipal.btn1ExportClick(Sender: TObject);
@@ -259,6 +296,5 @@ begin
   ChecaCampos;
   DatePicker1Inicial.Date := Now;
   DatePicker2Final.Date := Now;
-  PreencherTextBoxes;
 end;
 end.

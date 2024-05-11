@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Phys.PGDef,
   FireDAC.Phys.PG, Data.DB, FireDAC.Comp.Client, System.SysUtils, Vcl.Forms,
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
-  FireDAC.Comp.DataSet, Winapi.Windows;
+  FireDAC.Comp.DataSet, Winapi.Windows, Vcl.Controls;
 
 type
   TdmDados = class(TDataModule)
