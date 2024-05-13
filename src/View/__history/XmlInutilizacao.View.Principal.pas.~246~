@@ -115,6 +115,7 @@ begin
   DatePicker2Final.Enabled := True;
   btn1Export.Enabled := True;
   btn4Checar.Enabled := True;
+  checkBox.Enabled := True;
   ButtonConectar.Caption := 'Desconectar';
 end;
 
@@ -174,23 +175,26 @@ end;
 
 procedure TfrmPrincipal.btn4ChecarClick(Sender: TObject);
 begin
-  if (lblAno.Text <> '') AND (lblModel.Text <> '')  AND (lblSerie.Text <> '') AND (lblNinicial.Text <> '') AND (lblNfinal.Text <> '') then
-
-  dmDados.FiltroInutilizacao(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date),
-  lblSerie.Text, lblModel.Text, StrToInt(lblNinicial.Text), StrToInt(lblNfinal.Text), StrToInt(lblAno.Text))
-
+  if checkBox.Checked then
+  begin
+    if (lblAno.Text = '') OR (lblModel.Text = '')  OR (lblSerie.Text = '') OR (lblNinicial.Text = '') OR (lblNfinal.Text = '') then
+  begin
+    Application.MessageBox('Todos os campos dos filtros devem ser preenchidos!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
+  end
+  else
+    dmDados.FiltroInutilizacao(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date),
+    lblSerie.Text, lblModel.Text, StrToInt(lblNinicial.Text), StrToInt(lblNfinal.Text), StrToInt(lblAno.Text));
+  end
   else
   begin
-
-  dmDados.FiltroXML(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date));
-
+    dmDados.FiltroXML(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date));
   end;
-
-  ShowScrollBar(dbGridPrincipal.Handle,SB_VERT,False);
-  lblRows.Caption := 'Total de registros: ' + dbGridPrincipal.DataSource.DataSet.RecordCount.ToString;
+    ShowScrollBar(dbGridPrincipal.Handle,SB_VERT,False);
+    lblRows.Caption := 'Total de registros: ' + dbGridPrincipal.DataSource.DataSet.RecordCount.ToString;
 end;
 
 procedure TfrmPrincipal.ButtonConectarClick(Sender: TObject);
+var Messagem : PWideChar;
 begin
   if ButtonConectar.Caption = 'Desconectar' then
   begin
@@ -208,9 +212,9 @@ begin
       Application.MessageBox('Conexão Realizada!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
     end;
   except
-    on e: Exception do
+      on e: Exception do
     begin
-      Application.MessageBox('Erro na Conexão!', 'XML Inutilização', MB_OK + MB_ICONWARNING);
+      Application.MessageBox('Erro na Conexão', 'XML Inutilização', MB_OK + MB_ICONWARNING);
     end;
   end;
 end;

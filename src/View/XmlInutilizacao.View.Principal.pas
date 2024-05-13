@@ -202,14 +202,15 @@ begin
     Application.MessageBox('Desconectado!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
     InicializarControles;
     LimparCampos;
+    lblRows.Caption := '';
   end
   else
   try
     uConexao.Conexao(edt1Ip.Text, edt2Porta.Text, edt3Base.Text, edt4User.Text, edt5Pass.Text);
-    AtualizaEstadoControles;
     if dmDados.fdConnection.Connected then
     begin
       Application.MessageBox('Conexão Realizada!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
+      AtualizaEstadoControles;
     end;
   except
       on e: Exception do
