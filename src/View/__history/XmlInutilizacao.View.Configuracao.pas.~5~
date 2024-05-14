@@ -1,0 +1,38 @@
+unit XmlInutilizacao.View.Configuracao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, uConexao,
+  System.ImageList, Vcl.ImgList;
+
+type
+  TfrmConfig = class(TForm)
+    edtIp: TEdit;
+    edtPorta: TEdit;
+    edtBase: TEdit;
+    btnConfirmar: TButton;
+    ImageList: TImageList;
+    procedure btnConfirmarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmConfig: TfrmConfig;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmConfig.btnConfirmarClick(Sender: TObject);
+begin
+  Conexao(edtIp.Text , edtPorta.Text, edtBase.Text);
+  Application.MessageBox('Configuração salva!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
+  Close;
+end;
+
+end.

@@ -116,6 +116,14 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="Classes\uConexao.pas"/>
+        <DCCReference Include="src\View\XmlInutilizacao.View.Login.pas">
+            <Form>frmLogin</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\View\XmlInutilizacao.View.Configuracao.pas">
+            <Form>frmConfig</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

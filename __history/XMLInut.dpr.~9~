@@ -1,0 +1,20 @@
+program XMLInut;
+
+uses
+  Vcl.Forms,
+  XmlInutilizacao.View.Principal in 'src\View\XmlInutilizacao.View.Principal.pas' {frmPrincipal},
+  uLib in 'Classes\uLib.pas',
+  XmlInutilizacao.View.Conexao in 'src\Model\XmlInutilizacao.View.Conexao.pas' {dmDados: TDataModule},
+  uConexao in 'Classes\uConexao.pas',
+  XmlInutilizacao.View.Login in 'src\View\XmlInutilizacao.View.Login.pas' {Form1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TdmDados, dmDados);
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

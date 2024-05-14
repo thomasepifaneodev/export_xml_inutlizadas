@@ -7,6 +7,8 @@ interface
 
   function GetValorIni(pLocal, pSessao, pSubSessao: string) : string;
 
+  function ArquivoINIExiste(const NomeArquivo: string): Boolean;
+
 implementation
 
   procedure SetValorIni(pLocal, pSessao, pSubSessao, pValor: string);
@@ -25,6 +27,11 @@ implementation
     vArquivo := TIniFile.Create(pLocal);
     Result := vArquivo.ReadString(pSessao, pSubSessao, '');
     vArquivo.Free;
+  end;
+
+  function ArquivoINIExiste(const NomeArquivo: string): Boolean;
+  begin
+    Result := FileExists(NomeArquivo);
   end;
 
 end.

@@ -8,7 +8,7 @@ object dmDados: TdmDados
   end
   object fdPgLink: TFDPhysPgDriverLink
     OnDriverCreated = fdPgLinkDriverCreated
-    Left = 344
+    Left = 343
     Top = 192
   end
   object fdQuery: TFDQuery

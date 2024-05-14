@@ -4,8 +4,8 @@ object frmPrincipal: TfrmPrincipal
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Export Inutiliza'#231#227'o'
-  ClientHeight = 637
-  ClientWidth = 1002
+  ClientHeight = 761
+  ClientWidth = 1264
   Color = clSkyBlue
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,13 +15,14 @@ object frmPrincipal: TfrmPrincipal
   Position = poScreenCenter
   Visible = True
   StyleName = 'Windows'
+  OnCreate = FormCreate
   OnShow = FormShow
   TextHeight = 15
   object pnlConection: TPanel
     Left = 0
     Top = 0
-    Width = 1002
-    Height = 140
+    Width = 1264
+    Height = 113
     Align = alTop
     BevelOuter = bvNone
     Color = clSkyBlue
@@ -30,8 +31,8 @@ object frmPrincipal: TfrmPrincipal
     StyleName = 'Windows'
     object lblFinal: TLabel
       AlignWithMargins = True
-      Left = 818
-      Top = 114
+      Left = 1080
+      Top = 54
       Width = 70
       Height = 21
       Caption = 'Data Final'
@@ -44,8 +45,8 @@ object frmPrincipal: TfrmPrincipal
     end
     object lblInicio: TLabel
       AlignWithMargins = True
-      Left = 618
-      Top = 114
+      Left = 880
+      Top = 54
       Width = 79
       Height = 21
       Caption = 'Data Inicial'
@@ -56,41 +57,45 @@ object frmPrincipal: TfrmPrincipal
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object edt1Ip: TLabeledEdit
-      Left = 40
-      Top = 50
-      Width = 121
-      Height = 25
-      EditLabel.Width = 14
-      EditLabel.Height = 21
-      EditLabel.Caption = 'IP'
-      EditLabel.Font.Charset = ANSI_CHARSET
-      EditLabel.Font.Color = clWindowText
-      EditLabel.Font.Height = -16
-      EditLabel.Font.Name = 'Segoe UI Semibold'
-      EditLabel.Font.Style = [fsBold]
-      EditLabel.ParentFont = False
-      Font.Charset = ANSI_CHARSET
+    object DatePicker1Inicial: TDatePicker
+      Left = 963
+      Top = 51
+      Width = 105
+      Height = 26
+      Date = 45422.000000000000000000
+      DateFormat = 'dd/mm/yyyy'
+      Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = []
       TabOrder = 0
-      Text = ''
-      OnKeyPress = edt1IpKeyPress
     end
-    object edt2Porta: TLabeledEdit
-      Left = 176
-      Top = 50
-      Width = 121
+    object DatePicker2Final: TDatePicker
+      Left = 1154
+      Top = 51
+      Width = 105
+      Height = 26
+      Date = 45422.000000000000000000
+      DateFormat = 'dd/mm/yyyy'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      TabOrder = 1
+    end
+    object lblAno: TLabeledEdit
+      Left = 5
+      Top = 52
+      Width = 85
       Height = 25
-      EditLabel.Width = 50
-      EditLabel.Height = 21
-      EditLabel.Caption = 'PORTA'
+      EditLabel.Width = 29
+      EditLabel.Height = 17
+      EditLabel.Caption = 'ANO'
       EditLabel.Font.Charset = ANSI_CHARSET
       EditLabel.Font.Color = clWindowText
-      EditLabel.Font.Height = -16
+      EditLabel.Font.Height = -13
       EditLabel.Font.Name = 'Segoe UI Semibold'
       EditLabel.Font.Style = [fsBold]
       EditLabel.ParentFont = False
@@ -102,19 +107,18 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       TabOrder = 2
       Text = ''
-      OnKeyPress = edt2PortaKeyPress
     end
-    object edt3Base: TLabeledEdit
-      Left = 312
-      Top = 50
-      Width = 121
+    object lblModel: TLabeledEdit
+      Left = 135
+      Top = 52
+      Width = 85
       Height = 25
-      EditLabel.Width = 119
-      EditLabel.Height = 21
-      EditLabel.Caption = 'BASE DE DADOS'
+      EditLabel.Width = 54
+      EditLabel.Height = 17
+      EditLabel.Caption = 'MODELO'
       EditLabel.Font.Charset = ANSI_CHARSET
       EditLabel.Font.Color = clWindowText
-      EditLabel.Font.Height = -16
+      EditLabel.Font.Height = -13
       EditLabel.Font.Name = 'Segoe UI Semibold'
       EditLabel.Font.Style = [fsBold]
       EditLabel.ParentFont = False
@@ -126,19 +130,18 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       TabOrder = 3
       Text = ''
-      OnKeyPress = edt3BaseKeyPress
     end
-    object edt4User: TLabeledEdit
-      Left = 588
-      Top = 50
-      Width = 121
+    object lblSerie: TLabeledEdit
+      Left = 266
+      Top = 52
+      Width = 85
       Height = 25
-      EditLabel.Width = 69
-      EditLabel.Height = 21
-      EditLabel.Caption = 'USU'#193'RIO'
+      EditLabel.Width = 33
+      EditLabel.Height = 17
+      EditLabel.Caption = 'SERIE'
       EditLabel.Font.Charset = ANSI_CHARSET
       EditLabel.Font.Color = clWindowText
-      EditLabel.Font.Height = -16
+      EditLabel.Font.Height = -13
       EditLabel.Font.Name = 'Segoe UI Semibold'
       EditLabel.Font.Style = [fsBold]
       EditLabel.ParentFont = False
@@ -150,19 +153,18 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       TabOrder = 4
       Text = ''
-      OnKeyPress = edt4UserKeyPress
     end
-    object edt5Pass: TLabeledEdit
-      Left = 724
-      Top = 50
-      Width = 121
+    object lblNinicial: TLabeledEdit
+      Left = 397
+      Top = 52
+      Width = 85
       Height = 25
-      EditLabel.Width = 52
-      EditLabel.Height = 21
-      EditLabel.Caption = 'SENHA'
+      EditLabel.Width = 65
+      EditLabel.Height = 17
+      EditLabel.Caption = 'N'#186' INICIAL'
       EditLabel.Font.Charset = ANSI_CHARSET
       EditLabel.Font.Color = clWindowText
-      EditLabel.Font.Height = -16
+      EditLabel.Font.Height = -13
       EditLabel.Font.Name = 'Segoe UI Semibold'
       EditLabel.Font.Style = [fsBold]
       EditLabel.ParentFont = False
@@ -172,183 +174,21 @@ object frmPrincipal: TfrmPrincipal
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
-      PasswordChar = '*'
       TabOrder = 5
       Text = ''
-      OnKeyPress = edt5PassKeyPress
     end
-    object pnlBtnConectar: TPanel
-      AlignWithMargins = True
-      Left = 866
-      Top = 43
-      Width = 100
-      Height = 35
-      Margins.Left = 0
-      Margins.Top = 0
-      Margins.Right = 0
-      Margins.Bottom = 0
-      ParentCustomHint = False
-      BevelOuter = bvNone
-      Color = clHighlightText
-      ParentBackground = False
-      ParentShowHint = False
-      ShowHint = True
-      TabOrder = 1
-      StyleName = 'Windows'
-      object ButtonConectar: TSpeedButton
-        AlignWithMargins = True
-        Left = -5
-        Top = -4
-        Width = 110
-        Height = 40
-        Caption = 'Conectar'
-        Flat = True
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = [fsBold]
-        ParentFont = False
-        StyleName = 'Windows'
-        OnClick = ButtonConectarClick
-      end
-    end
-    object DatePicker1Inicial: TDatePicker
-      Left = 701
-      Top = 111
-      Width = 105
-      Height = 25
-      Date = 45422.000000000000000000
-      DateFormat = 'dd/mm/yyyy'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      TabOrder = 6
-    end
-    object DatePicker2Final: TDatePicker
-      Left = 892
-      Top = 111
-      Width = 105
-      Height = 25
-      Date = 45422.000000000000000000
-      DateFormat = 'dd/mm/yyyy'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      TabOrder = 7
-    end
-    object lblAno: TLabeledEdit
-      Left = 5
-      Top = 111
-      Width = 85
-      Height = 25
-      EditLabel.Width = 29
-      EditLabel.Height = 17
-      EditLabel.Caption = 'ANO'
-      EditLabel.Font.Charset = DEFAULT_CHARSET
-      EditLabel.Font.Color = clWindowText
-      EditLabel.Font.Height = -13
-      EditLabel.Font.Name = 'Segoe UI'
-      EditLabel.Font.Style = [fsBold]
-      EditLabel.ParentFont = False
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 8
-      Text = ''
-      OnKeyPress = lblAnoKeyPress
-    end
-    object lblModel: TLabeledEdit
-      Left = 102
-      Top = 112
+    object lblNfinal: TLabeledEdit
+      Left = 528
+      Top = 52
       Width = 85
       Height = 25
       EditLabel.Width = 56
       EditLabel.Height = 17
-      EditLabel.Caption = 'MODELO'
-      EditLabel.Font.Charset = DEFAULT_CHARSET
-      EditLabel.Font.Color = clWindowText
-      EditLabel.Font.Height = -13
-      EditLabel.Font.Name = 'Segoe UI'
-      EditLabel.Font.Style = [fsBold]
-      EditLabel.ParentFont = False
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 9
-      Text = ''
-      OnKeyPress = lblModelKeyPress
-    end
-    object lblSerie: TLabeledEdit
-      Left = 199
-      Top = 111
-      Width = 85
-      Height = 25
-      EditLabel.Width = 33
-      EditLabel.Height = 17
-      EditLabel.Caption = 'SERIE'
-      EditLabel.Font.Charset = DEFAULT_CHARSET
-      EditLabel.Font.Color = clWindowText
-      EditLabel.Font.Height = -13
-      EditLabel.Font.Name = 'Segoe UI'
-      EditLabel.Font.Style = [fsBold]
-      EditLabel.ParentFont = False
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 10
-      Text = ''
-      OnKeyPress = lblSerieKeyPress
-    end
-    object lblNinicial: TLabeledEdit
-      Left = 296
-      Top = 112
-      Width = 85
-      Height = 25
-      EditLabel.Width = 66
-      EditLabel.Height = 17
-      EditLabel.Caption = 'N'#186' INICIAL'
-      EditLabel.Font.Charset = DEFAULT_CHARSET
-      EditLabel.Font.Color = clWindowText
-      EditLabel.Font.Height = -13
-      EditLabel.Font.Name = 'Segoe UI'
-      EditLabel.Font.Style = [fsBold]
-      EditLabel.ParentFont = False
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'Segoe UI Semibold'
-      Font.Style = [fsBold]
-      ParentFont = False
-      TabOrder = 11
-      Text = ''
-      OnKeyPress = lblNinicialKeyPress
-    end
-    object lblNfinal: TLabeledEdit
-      Left = 393
-      Top = 112
-      Width = 85
-      Height = 25
-      EditLabel.Width = 57
-      EditLabel.Height = 17
       EditLabel.Caption = 'N'#186' FINAL'
-      EditLabel.Font.Charset = DEFAULT_CHARSET
+      EditLabel.Font.Charset = ANSI_CHARSET
       EditLabel.Font.Color = clWindowText
       EditLabel.Font.Height = -13
-      EditLabel.Font.Name = 'Segoe UI'
+      EditLabel.Font.Name = 'Segoe UI Semibold'
       EditLabel.Font.Style = [fsBold]
       EditLabel.ParentFont = False
       Font.Charset = ANSI_CHARSET
@@ -357,14 +197,15 @@ object frmPrincipal: TfrmPrincipal
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 12
+      TabOrder = 6
       Text = ''
     end
     object checkBox: TCheckBox
-      Left = 491
-      Top = 117
+      Left = 659
+      Top = 55
       Width = 100
       Height = 17
+      TabStop = False
       Caption = 'Ativar Filtros'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -372,14 +213,13 @@ object frmPrincipal: TfrmPrincipal
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 13
-      OnClick = checkBoxClick
+      TabOrder = 7
     end
   end
   object pnlBottom: TPanel
     Left = 0
-    Top = 587
-    Width = 1002
+    Top = 711
+    Width = 1264
     Height = 50
     Align = alBottom
     BevelOuter = bvNone
@@ -387,8 +227,10 @@ object frmPrincipal: TfrmPrincipal
     ParentBackground = False
     TabOrder = 1
     StyleName = 'Windows'
+    ExplicitTop = 587
+    ExplicitWidth = 1002
     DesignSize = (
-      1002
+      1264
       50)
     object lblRows: TLabel
       Left = 426
@@ -426,7 +268,7 @@ object frmPrincipal: TfrmPrincipal
       OnClick = btn1ExportClick
     end
     object btn3Exit: TButton
-      Left = 899
+      Left = 1159
       Top = 10
       Width = 100
       Height = 30
@@ -445,6 +287,7 @@ object frmPrincipal: TfrmPrincipal
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ImageIndex = 2
+      ImageMargins.Left = 8
       Images = imgList
       ParentBiDiMode = False
       ParentDoubleBuffered = False
@@ -471,6 +314,7 @@ object frmPrincipal: TfrmPrincipal
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ImageIndex = 1
+      ImageMargins.Left = 5
       Images = imgList
       ParentFont = False
       TabOrder = 2
@@ -481,9 +325,9 @@ object frmPrincipal: TfrmPrincipal
   object pnlCentral: TPanel
     AlignWithMargins = True
     Left = 5
-    Top = 145
-    Width = 992
-    Height = 437
+    Top = 118
+    Width = 1254
+    Height = 588
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -494,11 +338,14 @@ object frmPrincipal: TfrmPrincipal
     ParentBackground = False
     TabOrder = 2
     StyleName = 'Windows'
+    ExplicitTop = 102
+    ExplicitWidth = 992
+    ExplicitHeight = 480
     object dbGridPrincipal: TDBGrid
       Left = 0
       Top = 0
-      Width = 992
-      Height = 437
+      Width = 1254
+      Height = 588
       Margins.Left = 20
       Margins.Top = 20
       Margins.Right = 20
@@ -536,7 +383,7 @@ object frmPrincipal: TfrmPrincipal
           Title.Font.Height = -16
           Title.Font.Name = 'Segoe UI'
           Title.Font.Style = [fsBold]
-          Width = 738
+          Width = 890
           Visible = True
         end
         item
@@ -553,7 +400,7 @@ object frmPrincipal: TfrmPrincipal
           Title.Font.Height = -16
           Title.Font.Name = 'Segoe UI'
           Title.Font.Style = [fsBold]
-          Width = 85
+          Width = 120
           Visible = True
         end
         item
@@ -570,7 +417,7 @@ object frmPrincipal: TfrmPrincipal
           Title.Font.Height = -16
           Title.Font.Name = 'Segoe UI'
           Title.Font.Style = [fsBold]
-          Width = 85
+          Width = 120
           Visible = True
         end
         item
@@ -587,7 +434,7 @@ object frmPrincipal: TfrmPrincipal
           Title.Font.Height = -16
           Title.Font.Name = 'Segoe UI'
           Title.Font.Style = [fsBold]
-          Width = 80
+          Width = 120
           Visible = True
         end>
     end
@@ -1137,7 +984,7 @@ object frmPrincipal: TfrmPrincipal
   end
   object dataSource: TDataSource
     DataSet = dmDados.fdQuery
-    Left = 904
-    Top = 465
+    Left = 766
+    Top = 586
   end
 end
