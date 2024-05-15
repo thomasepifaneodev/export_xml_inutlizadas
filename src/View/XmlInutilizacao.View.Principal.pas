@@ -12,15 +12,12 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.UI.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.VCLUI.Wait, XmlInutilizacao.View.Conexao, uConexao,
-  XmlInutilizacao.View.Login;
+  XmlInutilizacao.View.Login, AdvOfficeButtons, AdvGlassButton;
 
 type
   TfrmPrincipal = class(TForm)
     pnlConection: TPanel;
     pnlBottom: TPanel;
-    btn4Checar: TButton;
-    btn1Export: TButton;
-    btn3Exit: TButton;
     imgList: TImageList;
     pnlCentral: TPanel;
     dbGridPrincipal: TDBGrid;
@@ -35,17 +32,23 @@ type
     lblSerie: TLabeledEdit;
     lblNinicial: TLabeledEdit;
     lblNfinal: TLabeledEdit;
-    checkBox: TCheckBox;
+    checkBox: TAdvOfficeCheckBox;
+    btn4Checar: TAdvGlassButton;
+    btn1Export: TAdvGlassButton;
+    btn3Exit: TAdvGlassButton;
 
     procedure FormShow(Sender: TObject);
     procedure btn3ExitClick(Sender: TObject);
-    procedure btn4ChecarClick(Sender: TObject);
     procedure btn1ExportClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure checkBoxClick(Sender: TObject);
+    procedure btn4Checar_Click(Sender: TObject);
   private
     { Private declarations }
     procedure FecharApp;
     procedure LimparCampos;
+    procedure InicializarControles;
+    procedure AlterarControles;
   public
     { Public declarations }
   end;
@@ -74,7 +77,25 @@ begin
 end;
 end;
 
-procedure TfrmPrincipal.btn4ChecarClick(Sender: TObject);
+procedure TfrmPrincipal.InicializarControles;
+begin
+  lblAno.Enabled := False;
+  lblModel.Enabled := False;
+  lblSerie.Enabled := False;
+  lblNinicial.Enabled := False;
+  lblNfinal.Enabled := False;
+end;
+
+procedure TfrmPrincipal.AlterarControles;
+begin
+  lblAno.Enabled := True;
+  lblModel.Enabled := True;
+  lblSerie.Enabled := True;
+  lblNinicial.Enabled := True;
+  lblNfinal.Enabled := True;
+end;
+
+procedure TfrmPrincipal.btn4Checar_Click(Sender: TObject);
 begin
   if checkBox.Checked then
   begin
@@ -92,6 +113,21 @@ begin
   end;
     ShowScrollBar(dbGridPrincipal.Handle,SB_VERT,False);
     lblRows.Caption := 'Total de registros: ' + dbGridPrincipal.DataSource.DataSet.RecordCount.ToString;
+end;
+
+procedure TfrmPrincipal.checkBoxClick(Sender: TObject);
+begin
+  frmPrincipal.SetFocus;
+  if checkBox.Checked then
+  begin
+  Self.SetFocus;
+  AlterarControles;
+  end
+  else
+  begin
+  Self.SetFocus;
+  InicializarControles;
+  end;
 end;
 
 procedure TfrmPrincipal.btn1ExportClick(Sender: TObject);
@@ -136,6 +172,7 @@ end;
 
 procedure TfrmPrincipal.FormShow(Sender: TObject);
 begin
+  InicializarControles;
   DatePicker1Inicial.Date := Now;
   DatePicker2Final.Date := Now;
 end;

@@ -5,16 +5,17 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, uConexao, XmlInutilizacao.View.Conexao, uLib,
-  System.ImageList, Vcl.ImgList, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Buttons, XmlInutilizacao.View.Configuracao;
+  System.ImageList, Vcl.ImgList, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Buttons, XmlInutilizacao.View.Configuracao,
+  AdvGlassButton;
 
 type
   TfrmLogin = class(TForm)
     edtSenha: TEdit;
-    btnLogin: TButton;
     Image: TImage;
     edtUsuario: TEdit;
     btnConfig: TSpeedButton;
     ImageList: TImageList;
+    btnLogin: TAdvGlassButton;
     procedure btnLoginClick(Sender: TObject);
     procedure edtUsuarioKeyPress(Sender: TObject; var Key: Char);
     procedure edtSenhaKeyPress(Sender: TObject; var Key: Char);
@@ -53,7 +54,7 @@ begin
   except
       on e: Exception do
     begin
-      Application.MessageBox('Erro! Verifique Usuário e/ou Senha!', 'XML Inutilização', MB_OK + MB_ICONWARNING);
+      Application.MessageBox(PWideChar('Erro! Verifique Usuário e/ou Senha! ' + e.Message), 'XML Inutilização', MB_OK + MB_ICONWARNING);
     end;
   end;
 

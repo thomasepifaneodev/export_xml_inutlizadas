@@ -5,15 +5,15 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, uConexao, uLib,
-  System.ImageList, Vcl.ImgList;
+  System.ImageList, Vcl.ImgList, AdvGlassButton;
 
 type
   TfrmConfig = class(TForm)
     edtIp: TEdit;
     edtPorta: TEdit;
     edtBase: TEdit;
-    btnConfirmar: TButton;
     ImageList: TImageList;
+    btnConfirmar: TAdvGlassButton;
     procedure btnConfirmarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure edtIpKeyPress(Sender: TObject; var Key: Char);

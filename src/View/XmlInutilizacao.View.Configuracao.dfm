@@ -5,7 +5,7 @@ object frmConfig: TfrmConfig
   Caption = 'Tela de Configura'#231#227'o'
   ClientHeight = 442
   ClientWidth = 307
-  Color = clSkyBlue
+  Color = clActiveCaption
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
@@ -78,26 +78,29 @@ object frmConfig: TfrmConfig
     TextHint = 'Base'
     OnKeyPress = edtBaseKeyPress
   end
-  object btnConfirmar: TButton
-    AlignWithMargins = True
-    Left = 103
-    Top = 360
-    Width = 100
+  object btnConfirmar: TAdvGlassButton
+    Left = 93
+    Top = 337
+    Width = 121
     Height = 35
-    Margins.Left = 10
-    Caption = 'Salvar'
+    BackColor = clSkyBlue
+    BackGroundSymbolColor = clBlack
+    Caption = 'Entrar'
+    CornerRadius = 6
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
-    Font.Height = -13
+    Font.Height = -16
     Font.Name = 'Segoe UI Semibold'
     Font.Style = [fsBold]
+    ForeColor = clSkyBlue
+    GlowColor = clSkyBlue
     ImageIndex = 0
-    ImageMargins.Left = 8
-    Images = ImageList
+    InnerBorderColor = clBlack
+    OuterBorderColor = clSkyBlue
     ParentFont = False
+    ShineColor = clCaptionText
     TabOrder = 3
-    TabStop = False
-    StyleName = 'Windows'
+    Version = '1.3.3.1'
     OnClick = btnConfirmarClick
   end
   object ImageList: TImageList
