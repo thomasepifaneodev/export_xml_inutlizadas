@@ -24,18 +24,19 @@ type
     dataSource: TDataSource;
     lblFinal: TLabel;
     lblInicio: TLabel;
-    DatePicker1Inicial: TDatePicker;
-    DatePicker2Final: TDatePicker;
     lblRows: TLabel;
     lblAno: TLabeledEdit;
     lblModel: TLabeledEdit;
     lblSerie: TLabeledEdit;
     lblNinicial: TLabeledEdit;
     lblNfinal: TLabeledEdit;
-    checkBox: TAdvOfficeCheckBox;
-    btn4Checar: TAdvGlassButton;
-    btn1Export: TAdvGlassButton;
-    btn3Exit: TAdvGlassButton;
+    btn1Export: TSpeedButton;
+    btn1Exit: TSpeedButton;
+    btn4Checar: TSpeedButton;
+    checkBox: TCheckBox;
+    lblCheckBox: TLabel;
+    DatePicker1Inicial: TDateTimePicker;
+    DatePicker2Final: TDateTimePicker;
 
     procedure FormShow(Sender: TObject);
     procedure btn3ExitClick(Sender: TObject);
@@ -44,6 +45,10 @@ type
     procedure checkBoxClick(Sender: TObject);
     procedure btn4Checar_Click(Sender: TObject);
     procedure lblNfinalKeyPress(Sender: TObject; var Key: Char);
+    procedure lblAnoKeyPress(Sender: TObject; var Key: Char);
+    procedure lblModelKeyPress(Sender: TObject; var Key: Char);
+    procedure lblSerieKeyPress(Sender: TObject; var Key: Char);
+    procedure lblNinicialKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     procedure FecharApp;
@@ -123,6 +128,7 @@ begin
   begin
   Self.SetFocus;
   AlterarControles;
+  lblAno.SetFocus;
   end
   else
   begin
@@ -144,6 +150,7 @@ end;
 
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
+
   if not ArquivoINIExiste(ExtractFilePath(Application.ExeName) + 'XMLInut.ini') then
   begin
   Application.MessageBox('Arquivo de configuração não encontrado!', 'XML Inutilização', MB_OK + MB_ICONWARNING);
@@ -163,8 +170,8 @@ begin
         end;
       if frmLogin.ModalResult	<> mrOk then
       begin
-      frmPrincipal.Free;
-      Application.Terminate;
+        Application.Terminate;
+        frmPrincipal.Free;
       end;
     finally
       FreeAndNil(frmLogin);
@@ -178,10 +185,47 @@ begin
   DatePicker2Final.Date := Now;
 end;
 
+procedure TfrmPrincipal.lblAnoKeyPress(Sender: TObject; var Key: Char);
+begin
+  if (Key = #13) then
+  begin
+    Key := #0;
+    lblModel.SetFocus;
+  end;
+end;
+
+procedure TfrmPrincipal.lblModelKeyPress(Sender: TObject; var Key: Char);
+begin
+  if (Key = #13) then
+  begin
+    Key := #0;
+    lblSerie.SetFocus;
+  end;
+end;
+
+procedure TfrmPrincipal.lblSerieKeyPress(Sender: TObject; var Key: Char);
+begin
+  if (Key = #13) then
+  begin
+    Key := #0;
+    lblNinicial.SetFocus;
+  end;
+end;
+
+procedure TfrmPrincipal.lblNinicialKeyPress(Sender: TObject; var Key: Char);
+begin
+  if (Key = #13) then
+  begin
+    Key := #0;
+    lblNfinal.SetFocus;
+  end;
+end;
+
 procedure TfrmPrincipal.lblNfinalKeyPress(Sender: TObject; var Key: Char);
 begin
   if (Key = #13) then
   begin
+    Key := #0;
     lblAno.SetFocus;
   end;
 end;

@@ -110,6 +110,20 @@ object frmLogin: TfrmLogin
     StyleName = 'Windows'
     OnClick = btnConfigClick
   end
+  object btnLogin: TSpeedButton
+    Left = 127
+    Top = 360
+    Width = 120
+    Height = 40
+    Caption = 'Entrar'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    ParentFont = False
+    OnClick = btnLoginClick
+  end
   object edtSenha: TEdit
     Left = 77
     Top = 296
@@ -121,11 +135,13 @@ object frmLogin: TfrmLogin
     BorderStyle = bsNone
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
-    Font.Height = -25
+    Font.Height = -24
     Font.Name = 'Segoe UI Semibold'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
     PasswordChar = '*'
+    ShowHint = False
     TabOrder = 1
     TextHint = 'Senha'
     OnKeyPress = edtSenhaKeyPress
@@ -145,39 +161,13 @@ object frmLogin: TfrmLogin
     BorderStyle = bsNone
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
-    Font.Height = -27
+    Font.Height = -24
     Font.Name = 'Segoe UI Semibold'
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
     TextHint = 'Usu'#225'rio'
     OnKeyPress = edtUsuarioKeyPress
-  end
-  object btnLogin: TAdvGlassButton
-    Left = 127
-    Top = 359
-    Width = 121
-    Height = 42
-    BackColor = clSkyBlue
-    BackGroundSymbolColor = clBlack
-    Caption = 'Entrar'
-    CornerRadius = 6
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Segoe UI Semibold'
-    Font.Style = [fsBold]
-    ForeColor = clSkyBlue
-    GlowColor = clSkyBlue
-    ImageIndex = 0
-    InnerBorderColor = clBlack
-    OuterBorderColor = clSkyBlue
-    ParentFont = False
-    ShineColor = clCaptionText
-    TabOrder = 2
-    TabStop = False
-    Version = '1.3.3.1'
-    OnClick = btnLoginClick
   end
   object ImageList: TImageList
     ColorDepth = cd32Bit

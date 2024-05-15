@@ -4,7 +4,7 @@ object frmPrincipal: TfrmPrincipal
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Export Inutiliza'#231#227'o'
-  ClientHeight = 761
+  ClientHeight = 779
   ClientWidth = 1264
   Color = clActiveCaption
   Font.Charset = DEFAULT_CHARSET
@@ -45,7 +45,7 @@ object frmPrincipal: TfrmPrincipal
     end
     object lblInicio: TLabel
       AlignWithMargins = True
-      Left = 880
+      Left = 881
       Top = 54
       Width = 79
       Height = 21
@@ -57,35 +57,18 @@ object frmPrincipal: TfrmPrincipal
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object DatePicker1Inicial: TDatePicker
-      Left = 963
-      Top = 51
-      Width = 105
-      Height = 26
-      Date = 45422.000000000000000000
-      DateFormat = 'dd/mm/yyyy'
-      Font.Charset = DEFAULT_CHARSET
+    object lblCheckBox: TLabel
+      Left = 650
+      Top = 53
+      Width = 87
+      Height = 20
+      Caption = 'Ativar Filtros'
+      Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      TabOrder = 6
-      TabStop = False
-    end
-    object DatePicker2Final: TDatePicker
-      Left = 1154
-      Top = 51
-      Width = 105
-      Height = 26
-      Date = 45422.000000000000000000
-      DateFormat = 'dd/mm/yyyy'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      TabOrder = 7
-      TabStop = False
+      Font.Height = -15
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object lblAno: TLabeledEdit
       Left = 5
@@ -106,9 +89,11 @@ object frmPrincipal: TfrmPrincipal
       Font.Height = -13
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
+      MaxLength = 6
       ParentFont = False
       TabOrder = 0
       Text = ''
+      OnKeyPress = lblAnoKeyPress
     end
     object lblModel: TLabeledEdit
       Left = 135
@@ -129,9 +114,11 @@ object frmPrincipal: TfrmPrincipal
       Font.Height = -13
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
+      MaxLength = 9
       ParentFont = False
       TabOrder = 1
       Text = ''
+      OnKeyPress = lblModelKeyPress
     end
     object lblSerie: TLabeledEdit
       Left = 266
@@ -152,9 +139,11 @@ object frmPrincipal: TfrmPrincipal
       Font.Height = -13
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
+      MaxLength = 6
       ParentFont = False
       TabOrder = 2
       Text = ''
+      OnKeyPress = lblSerieKeyPress
     end
     object lblNinicial: TLabeledEdit
       Left = 397
@@ -175,9 +164,11 @@ object frmPrincipal: TfrmPrincipal
       Font.Height = -13
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
+      MaxLength = 9
       ParentFont = False
       TabOrder = 3
       Text = ''
+      OnKeyPress = lblNinicialKeyPress
     end
     object lblNfinal: TLabeledEdit
       Left = 528
@@ -198,16 +189,17 @@ object frmPrincipal: TfrmPrincipal
       Font.Height = -13
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
+      MaxLength = 9
       ParentFont = False
       TabOrder = 4
       Text = ''
       OnKeyPress = lblNfinalKeyPress
     end
-    object checkBox: TAdvOfficeCheckBox
+    object checkBox: TCheckBox
       Left = 633
-      Top = 54
-      Width = 120
-      Height = 20
+      Top = 55
+      Width = 15
+      Height = 17
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -216,16 +208,51 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       TabOrder = 5
       OnClick = checkBoxClick
-      Alignment = taLeftJustify
-      Caption = 'Ativar Controles'
-      ReturnIsTab = False
-      ShowFocus = False
-      Version = '1.8.4.0'
+    end
+    object DatePicker1Inicial: TDateTimePicker
+      Left = 965
+      Top = 49
+      Width = 105
+      Height = 28
+      BevelInner = bvNone
+      BevelOuter = bvNone
+      Time = 0.649023773148655900
+      Color = clGradientInactiveCaption
+      DoubleBuffered = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParseInput = True
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 6
+      StyleName = 'Windows'
+    end
+    object DatePicker2Final: TDateTimePicker
+      Left = 1154
+      Top = 49
+      Width = 105
+      Height = 28
+      BevelInner = bvNone
+      BevelOuter = bvNone
+      Time = 0.649023773148655900
+      Color = clGradientInactiveCaption
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParseInput = True
+      ParentFont = False
+      TabOrder = 7
+      StyleName = 'Windows'
     end
   end
   object pnlBottom: TPanel
     Left = 0
-    Top = 711
+    Top = 729
     Width = 1264
     Height = 50
     Align = alBottom
@@ -234,6 +261,7 @@ object frmPrincipal: TfrmPrincipal
     ParentBackground = False
     TabOrder = 1
     StyleName = 'Windows'
+    ExplicitTop = 711
     object lblRows: TLabel
       Left = 426
       Top = 12
@@ -246,86 +274,58 @@ object frmPrincipal: TfrmPrincipal
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object btn4Checar: TAdvGlassButton
-      Left = 5
-      Top = 8
+    object btn1Export: TSpeedButton
+      Left = 116
+      Top = 6
       Width = 100
-      Height = 32
-      BackColor = clSkyBlue
-      BackGroundSymbolColor = clBlack
-      Caption = 'Buscar'
-      CornerRadius = 6
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ForeColor = clSkyBlue
-      GlowColor = clSkyBlue
-      Images = imgList
-      ImageIndex = 1
-      InnerBorderColor = clBlack
-      OuterBorderColor = clSkyBlue
-      ParentFont = False
-      ShineColor = clCaptionText
-      TabOrder = 0
-      TabStop = False
-      Version = '1.3.3.1'
-      OnClick = btn4Checar_Click
-    end
-    object btn1Export: TAdvGlassButton
-      Left = 110
-      Top = 8
-      Width = 100
-      Height = 32
-      BackColor = clSkyBlue
-      BackGroundSymbolColor = clBlack
+      Height = 35
       Caption = 'Exportar'
-      CornerRadius = 6
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ForeColor = clSkyBlue
-      GlowColor = clSkyBlue
-      Images = imgList
       ImageIndex = 0
-      InnerBorderColor = clBlack
-      OuterBorderColor = clSkyBlue
+      Images = imgList
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
       ParentFont = False
-      ShineColor = clCaptionText
-      TabOrder = 1
-      TabStop = False
-      Version = '1.3.3.1'
       OnClick = btn1ExportClick
     end
-    object btn3Exit: TAdvGlassButton
+    object btn1Exit: TSpeedButton
       Left = 1159
-      Top = 8
+      Top = 6
       Width = 100
-      Height = 32
-      BackColor = clSkyBlue
-      BackGroundSymbolColor = clBlack
+      Height = 35
       Caption = 'Sair'
-      CornerRadius = 6
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ForeColor = clSkyBlue
-      GlowColor = clSkyBlue
-      Images = imgList
       ImageIndex = 2
-      InnerBorderColor = clBlack
-      OuterBorderColor = clSkyBlue
+      Images = imgList
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      Margin = 15
       ParentFont = False
-      ShineColor = clCaptionText
-      TabOrder = 2
-      TabStop = False
-      Version = '1.3.3.1'
       OnClick = btn3ExitClick
+    end
+    object btn4Checar: TSpeedButton
+      Tag = 1
+      Left = 5
+      Top = 6
+      Width = 100
+      Height = 35
+      Caption = 'Checar'
+      ImageIndex = 1
+      Images = imgList
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      Margin = 5
+      ParentFont = False
+      Transparent = False
+      StyleName = 'Windows'
+      OnClick = btn4Checar_Click
     end
   end
   object pnlCentral: TPanel
@@ -333,7 +333,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 5
     Top = 118
     Width = 1254
-    Height = 588
+    Height = 606
     Margins.Left = 5
     Margins.Top = 5
     Margins.Right = 5
@@ -344,11 +344,12 @@ object frmPrincipal: TfrmPrincipal
     ParentBackground = False
     TabOrder = 2
     StyleName = 'Windows'
+    ExplicitHeight = 588
     object dbGridPrincipal: TDBGrid
       Left = 0
       Top = 0
       Width = 1254
-      Height = 588
+      Height = 606
       Margins.Left = 20
       Margins.Top = 20
       Margins.Right = 20

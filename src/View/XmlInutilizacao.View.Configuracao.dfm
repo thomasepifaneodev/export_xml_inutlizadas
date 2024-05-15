@@ -15,6 +15,23 @@ object frmConfig: TfrmConfig
   StyleName = 'Windows'
   OnShow = FormShow
   TextHeight = 15
+  object btnConfirmar: TSpeedButton
+    Left = 93
+    Top = 345
+    Width = 120
+    Height = 35
+    Caption = 'Salvar'
+    ImageIndex = 0
+    Images = ImageList
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Segoe UI Semibold'
+    Font.Style = [fsBold]
+    Margin = 20
+    ParentFont = False
+    OnClick = btnConfirmarClick
+  end
   object edtIp: TEdit
     AlignWithMargins = True
     Left = 54
@@ -77,32 +94,6 @@ object frmConfig: TfrmConfig
     TabOrder = 2
     TextHint = 'Base'
     OnKeyPress = edtBaseKeyPress
-  end
-  object btnConfirmar: TAdvGlassButton
-    Left = 93
-    Top = 337
-    Width = 121
-    Height = 35
-    BackColor = clSkyBlue
-    BackGroundSymbolColor = clBlack
-    Caption = 'Entrar'
-    CornerRadius = 6
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Segoe UI Semibold'
-    Font.Style = [fsBold]
-    ForeColor = clSkyBlue
-    GlowColor = clSkyBlue
-    ImageIndex = 0
-    InnerBorderColor = clBlack
-    OuterBorderColor = clSkyBlue
-    ParentFont = False
-    ShineColor = clCaptionText
-    TabOrder = 3
-    TabStop = False
-    Version = '1.3.3.1'
-    OnClick = btnConfirmarClick
   end
   object ImageList: TImageList
     ColorDepth = cd32Bit

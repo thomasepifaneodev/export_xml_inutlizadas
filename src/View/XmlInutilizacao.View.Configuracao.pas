@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, uConexao, uLib,
-  System.ImageList, Vcl.ImgList, AdvGlassButton;
+  System.ImageList, Vcl.ImgList, AdvGlassButton, Vcl.Buttons;
 
 type
   TfrmConfig = class(TForm)
@@ -13,7 +13,7 @@ type
     edtPorta: TEdit;
     edtBase: TEdit;
     ImageList: TImageList;
-    btnConfirmar: TAdvGlassButton;
+    btnConfirmar: TSpeedButton;
     procedure btnConfirmarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure edtIpKeyPress(Sender: TObject; var Key: Char);
@@ -42,19 +42,28 @@ end;
 procedure TfrmConfig.edtBaseKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 Then
-  btnConfirmarClick(Sender)	;
+  begin
+  Key := #0;
+  btnConfirmarClick(Sender);
+  end;
 end;
 
 procedure TfrmConfig.edtIpKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 Then
+  begin
+  Key := #0;
   edtPorta.SetFocus;
+  end;
 end;
 
 procedure TfrmConfig.edtPortaKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 Then
+  begin
+  Key := #0;
   edtBase.SetFocus;
+  end;
 end;
 
 procedure TfrmConfig.FormShow(Sender: TObject);
