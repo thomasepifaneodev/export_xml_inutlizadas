@@ -84,8 +84,8 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <DCC_ExeOutput>C:\Users\thoma\Documents\XmlInutilização\export_xml_inutlizadas\Exe\</DCC_ExeOutput>
-        <DCC_DcuOutput>C:\Users\thoma\Documents\XmlInutilização\export_xml_inutlizadas\dcu\</DCC_DcuOutput>
+        <DCC_ExeOutput>C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Exe\</DCC_ExeOutput>
+        <DCC_DcuOutput>C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\dcu\</DCC_DcuOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>XMLInut_Icon.ico</Icon_MainIcon>

@@ -54,7 +54,6 @@ begin
   fdQuery.SQL.Add('OR numerofinal BETWEEN ' + IntToStr(NumeroInicial) + ' AND ' + IntToStr(NumeroFinal) + ')');
 
   fdQuery.Open;
-
 end;
 
 procedure TdmDados.FiltroXML(DatInicial, DatFinal : String);

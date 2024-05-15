@@ -53,16 +53,32 @@ begin
     end;
   except
       on e: Exception do
-    begin
-      Application.MessageBox(PWideChar('Erro! Verifique Usuário e/ou Senha! ' + e.Message), 'XML Inutilização', MB_OK + MB_ICONWARNING);
-    end;
-  end;
+      begin
+        if e.ToString.Contains('failed: FATAL:  password authentication failed for user') then
+      begin
+        Application.MessageBox('Usuário e/ou Senha incorretos! ', 'XML Inutilização', MB_OK + MB_ICONWARNING);
+      end
+        else if e.ToString.Contains('failed: fe_sendauth: no password supplied') then
+        Application.MessageBox('Informe a senha!', 'XML Inutilização', MB_OK + MB_ICONWARNING)
+      else
+      begin
+        Application.MessageBox('Não foi possível conectar.' + sLineBreak + 'Verifique as configurações!', 'XML Inutilização', MB_OK + MB_ICONWARNING);
+
+          frmConfig := TFrmConfig.Create(nil);
+        try
+          frmConfig.ShowModal();
+        finally
+          FreeAndNil(frmConfig);
+        end;
+      end;
+      end;
+end;
 
 end;
 procedure TfrmLogin.edtSenhaKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 Then
-  btnLoginClick(Sender)	;
+  btnLoginClick(Sender);
 end;
 
 procedure TfrmLogin.edtUsuarioKeyPress(Sender: TObject; var Key: Char);

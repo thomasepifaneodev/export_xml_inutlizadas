@@ -29,7 +29,6 @@ object frmPrincipal: TfrmPrincipal
     ParentBackground = False
     TabOrder = 0
     StyleName = 'Windows'
-    ExplicitTop = -3
     object lblFinal: TLabel
       AlignWithMargins = True
       Left = 1080
@@ -70,7 +69,8 @@ object frmPrincipal: TfrmPrincipal
       Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
-      TabOrder = 5
+      TabOrder = 6
+      TabStop = False
     end
     object DatePicker2Final: TDatePicker
       Left = 1154
@@ -84,7 +84,8 @@ object frmPrincipal: TfrmPrincipal
       Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = []
-      TabOrder = 6
+      TabOrder = 7
+      TabStop = False
     end
     object lblAno: TLabeledEdit
       Left = 5
@@ -200,6 +201,7 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       TabOrder = 4
       Text = ''
+      OnKeyPress = lblNfinalKeyPress
     end
     object checkBox: TAdvOfficeCheckBox
       Left = 633
@@ -212,7 +214,7 @@ object frmPrincipal: TfrmPrincipal
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 7
+      TabOrder = 5
       OnClick = checkBoxClick
       Alignment = taLeftJustify
       Caption = 'Ativar Controles'
@@ -267,6 +269,7 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       ShineColor = clCaptionText
       TabOrder = 0
+      TabStop = False
       Version = '1.3.3.1'
       OnClick = btn4Checar_Click
     end
@@ -293,6 +296,7 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       ShineColor = clCaptionText
       TabOrder = 1
+      TabStop = False
       Version = '1.3.3.1'
       OnClick = btn1ExportClick
     end
@@ -303,7 +307,7 @@ object frmPrincipal: TfrmPrincipal
       Height = 32
       BackColor = clSkyBlue
       BackGroundSymbolColor = clBlack
-      Caption = 'Exportar'
+      Caption = 'Sair'
       CornerRadius = 6
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -319,6 +323,7 @@ object frmPrincipal: TfrmPrincipal
       ParentFont = False
       ShineColor = clCaptionText
       TabOrder = 2
+      TabStop = False
       Version = '1.3.3.1'
       OnClick = btn3ExitClick
     end

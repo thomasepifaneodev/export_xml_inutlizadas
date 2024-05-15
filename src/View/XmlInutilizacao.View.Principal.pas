@@ -3,7 +3,7 @@
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Messages, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.StdCtrls, Vcl.Mask,
   Vcl.ExtCtrls, uLib, Data.DB, Vcl.Grids, DateUtils, XmlInutilizacao.View.Configuracao,
   Vcl.DBGrids, System.ImageList, Vcl.ImgList, Vcl.ComCtrls, Vcl.WinXPickers,
@@ -43,6 +43,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure checkBoxClick(Sender: TObject);
     procedure btn4Checar_Click(Sender: TObject);
+    procedure lblNfinalKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     procedure FecharApp;
@@ -59,7 +60,7 @@ var
 implementation
 
 uses
-  System.SysUtils;
+  System.SysUtils, Winapi.Windows;
 
 {$R *.dfm}
 
@@ -175,5 +176,13 @@ begin
   InicializarControles;
   DatePicker1Inicial.Date := Now;
   DatePicker2Final.Date := Now;
+end;
+
+procedure TfrmPrincipal.lblNfinalKeyPress(Sender: TObject; var Key: Char);
+begin
+  if (Key = #13) then
+  begin
+    lblAno.SetFocus;
+  end;
 end;
 end.

@@ -100,6 +100,7 @@ object frmConfig: TfrmConfig
     ParentFont = False
     ShineColor = clCaptionText
     TabOrder = 3
+    TabStop = False
     Version = '1.3.3.1'
     OnClick = btnConfirmarClick
   end

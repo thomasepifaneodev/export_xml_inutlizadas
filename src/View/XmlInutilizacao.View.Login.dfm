@@ -114,7 +114,7 @@ object frmLogin: TfrmLogin
     Left = 97
     Top = 296
     Width = 180
-    Height = 30
+    Height = 33
     Alignment = taCenter
     BevelInner = bvNone
     BevelOuter = bvNone
@@ -134,9 +134,8 @@ object frmLogin: TfrmLogin
     Left = 97
     Top = 240
     Width = 180
-    Height = 30
+    Height = 33
     Margins.Left = 2
-    Margins.Top = 2
     Margins.Right = 2
     Margins.Bottom = 2
     Alignment = taCenter
@@ -176,6 +175,7 @@ object frmLogin: TfrmLogin
     ParentFont = False
     ShineColor = clCaptionText
     TabOrder = 2
+    TabStop = False
     Version = '1.3.3.1'
     OnClick = btnLoginClick
   end
