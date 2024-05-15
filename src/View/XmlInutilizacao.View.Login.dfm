@@ -111,9 +111,9 @@ object frmLogin: TfrmLogin
     OnClick = btnConfigClick
   end
   object edtSenha: TEdit
-    Left = 97
+    Left = 77
     Top = 296
-    Width = 180
+    Width = 220
     Height = 33
     Alignment = taCenter
     BevelInner = bvNone
@@ -121,7 +121,7 @@ object frmLogin: TfrmLogin
     BorderStyle = bsNone
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
-    Font.Height = -24
+    Font.Height = -25
     Font.Name = 'Segoe UI Semibold'
     Font.Style = [fsBold]
     ParentFont = False
@@ -131,9 +131,9 @@ object frmLogin: TfrmLogin
     OnKeyPress = edtSenhaKeyPress
   end
   object edtUsuario: TEdit
-    Left = 97
+    Left = 77
     Top = 240
-    Width = 180
+    Width = 220
     Height = 33
     Margins.Left = 2
     Margins.Right = 2
@@ -145,7 +145,7 @@ object frmLogin: TfrmLogin
     BorderStyle = bsNone
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
-    Font.Height = -24
+    Font.Height = -27
     Font.Name = 'Segoe UI Semibold'
     Font.Style = [fsBold]
     ParentFont = False
