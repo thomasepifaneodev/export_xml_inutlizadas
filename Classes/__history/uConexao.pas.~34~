@@ -19,19 +19,13 @@ var
   ConsultaSql : TFDQuery;
 begin
     ConsultaSql := TFDQuery.Create(nil);
-
+  try
+    LoginUser(User, Pass);
     ConsultaSql.Connection := dmDados.fdConnection;
     ConsultaSql.SQL.Clear;
     ConsultaSql.SQL.Add('SELECT * FROM usuarios WHERE login = :User AND pass = :Pass');
     ConsultaSql.ParamByName('User').AsString := User;
-    if User = 'zeus' then
-    begin
-    ConsultaSql.ParamByName('Pass').AsString := Pass
-    end
-    else
-    begin
-    ConsultaSql.ParamByName('Pass').AsString := '@2t24F5D4n75Z8foE8541Gj54gS5+878a@341R5$sGa4ES5$j%D14s#5d!5';
-    end;
+    ConsultaSql.ParamByName('Pass').AsString := Pass;
     ConsultaSql.Open;
 
     if ConsultaSql.IsEmpty then
@@ -42,9 +36,10 @@ begin
     begin
       Check := True;
     end;
-
-  ConsultaSql.Close;
-  ConsultaSql.Free;
+  finally
+    ConsultaSql.Close;
+    ConsultaSql.Free;
+  end;
   Result := Check;
 end;
 
@@ -72,15 +67,7 @@ begin
 
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Clear;
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.UserName := User;
-  if User = 'zeus' then
-  begin
-    XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Password := Pass;
-  end
-  else
-  begin
-    XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Password := '@2t24F5D4n75Z8foE8541Gj54gS5+878a@341R5$sGa4ES5$j%D14s#5d!5';
-  end;
-
+  XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Password := Pass;
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Add('DriverID=PG');
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Add('Database=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'BASE'));
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Add('Port=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'PORTA'));

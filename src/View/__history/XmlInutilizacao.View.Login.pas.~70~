@@ -44,32 +44,7 @@ end;
 
 procedure TfrmLogin.btnLoginClick(Sender: TObject);
 begin
-if edtUsuario.Text = '' then
-  MessageDlg('Informe usuário e senha!', mtWarning, [mbOk], 0)
-  else
-  begin
-    try
-    LoginUser(edtUsuario.Text, edtSenha.Text);
-    CheckUser(edtUsuario.Text, edtSenha.Text);
-    if dmDados.fdConnection.Connected then
-    begin
-      Close;
-    end;
-  except on e: Exception do
-  begin
-      if e.ToString.Contains('failed: FATAL:  password authentication failed for user') then
-      begin
-         MessageDlg('Usuário e/ou Senha incorretos!', mtWarning, [mbOk], 0);
-      end
-        else if e.ToString.Contains('failed: fe_sendauth: no password supplied') then
-        MessageDlg('Informe usuário e senha!', mtWarning, [mbOk], 0)
-      else
-      begin
-        MessageDlg('Não foi possível conectar. Verifique as configurações!', mtWarning, [mbOk], 0);
-      end;
-  end;
-  end;
-  end;
+  ShowMessage(BoolToStr(CheckUser(edtUsuario.Text, edtSenha.Text)))
 end;
 
 procedure TfrmLogin.edtSenhaKeyPress(Sender: TObject; var Key: Char);

@@ -15,37 +15,43 @@ implementation
 
 function CheckUser(User, Pass : String) : Boolean;
 var
-  Check: Boolean;
   ConsultaSql : TFDQuery;
 begin
     ConsultaSql := TFDQuery.Create(nil);
-
+  try
+  try
     ConsultaSql.Connection := dmDados.fdConnection;
     ConsultaSql.SQL.Clear;
     ConsultaSql.SQL.Add('SELECT * FROM usuarios WHERE login = :User AND pass = :Pass');
     ConsultaSql.ParamByName('User').AsString := User;
-    if User = 'zeus' then
-    begin
-    ConsultaSql.ParamByName('Pass').AsString := Pass
-    end
-    else
-    begin
-    ConsultaSql.ParamByName('Pass').AsString := '@2t24F5D4n75Z8foE8541Gj54gS5+878a@341R5$sGa4ES5$j%D14s#5d!5';
-    end;
+    ConsultaSql.ParamByName('Pass').AsString := Pass;
     ConsultaSql.Open;
-
     if ConsultaSql.IsEmpty then
     begin
-      Check := False;
+      Result := False;
     end
     else
     begin
-      Check := True;
+      Result := True;
     end;
-
-  ConsultaSql.Close;
-  ConsultaSql.Free;
-  Result := Check;
+  finally
+    ConsultaSql.Close;
+    ConsultaSql.Free;
+  end;
+  except on e: Exception do
+  begin
+      if e.ToString.Contains('failed: FATAL:  password authentication failed for user') then
+      begin
+         MessageDlg('Usuário e/ou Senha incorretos!', mtWarning, [mbOk], 0);
+      end
+        else if e.ToString.Contains('failed: fe_sendauth: no password supplied') then
+        MessageDlg('Informe usuário e senha!', mtWarning, [mbOk], 0)
+      else
+      begin
+        MessageDlg('Não foi possível conectar. Verifique as configurações!', mtWarning, [mbOk], 0);
+      end;
+  end;
+  end;
 end;
 
 function ReturnForm(Acao: TModalResult) : TModalResult;
@@ -72,15 +78,7 @@ begin
 
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Clear;
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.UserName := User;
-  if User = 'zeus' then
-  begin
-    XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Password := Pass;
-  end
-  else
-  begin
-    XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Password := '@2t24F5D4n75Z8foE8541Gj54gS5+878a@341R5$sGa4ES5$j%D14s#5d!5';
-  end;
-
+  XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Password := Pass;
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Add('DriverID=PG');
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Add('Database=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'BASE'));
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Add('Port=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'PORTA'));

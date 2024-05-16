@@ -150,35 +150,36 @@ end;
 
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
-  if not ArquivoINIExiste(ExtractFilePath(Application.ExeName) + 'XMLInut.ini') then
-  begin
-  MessageDlg('Arquivo de configuração não encontrado!', mtWarning, [mbOk], 0);
-  frmConfig := TFrmConfig.Create(nil);
-    try
-      frmConfig.ShowModal();
-    finally
-      FreeAndNil(frmConfig);
-    end;
-  end;
-  frmLogin := TFrmLogin.Create(nil);
-    try
-      frmLogin.ShowModal();
+  // Inicializa a aplicação e cria o formulário principal
+  Application.Initialize;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  frmPrincipal.Visible := False;  // Inicialmente não visível
+
+  // Mostra o formulário de login
+  frmLogin := TfrmLogin.Create(nil);
+  try
+    if frmLogin.ShowModal = mrOk then
+    begin
+      // Verifica a conexão
       if dmDados.fdConnection.Connected then
-        begin
-          frmLogin.ModalResult := ReturnForm(mrOk);
-        end;
-      if frmLogin.ModalResult	<> mrOk then
       begin
+        // Conexão bem-sucedida, torna o formulário principal visível
+        frmPrincipal.Visible := True;
+      end
+      else
+      begin
+        // Conexão falhou, termina a aplicação
         Application.Terminate;
-        frmPrincipal.Free;
       end;
-      except
-      on e: Exception do
-      begin
-      ShowMessage(PWideChar('Test' + e.Message));
-      FreeAndNil(frmLogin);
-      end;
+    end
+    else
+    begin
+      // Login cancelado, termina a aplicação
+      Application.Terminate;
     end;
+  finally
+    frmLogin.Free;
+  end;
 end;
 
 procedure TfrmPrincipal.FormShow(Sender: TObject);

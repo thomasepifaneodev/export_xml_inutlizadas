@@ -150,6 +150,10 @@ end;
 
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
+  Application.Initialize;
+//  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+
+
   if not ArquivoINIExiste(ExtractFilePath(Application.ExeName) + 'XMLInut.ini') then
   begin
   MessageDlg('Arquivo de configuração não encontrado!', mtWarning, [mbOk], 0);
@@ -172,12 +176,8 @@ begin
         Application.Terminate;
         frmPrincipal.Free;
       end;
-      except
-      on e: Exception do
-      begin
-      ShowMessage(PWideChar('Test' + e.Message));
+    finally
       FreeAndNil(frmLogin);
-      end;
     end;
 end;
 

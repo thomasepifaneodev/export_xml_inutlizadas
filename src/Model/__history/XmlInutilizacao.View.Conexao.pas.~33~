@@ -24,6 +24,7 @@ type
     procedure FiltroXML(DatInicial, DatFinal : String);
     procedure FiltroInutilizacao(DatInicial, DatFinal, Serie, Modelo : String; NumeroInicial, NumeroFinal, Ano : Integer);
   end;
+
 var
   dmDados: TdmDados;
 
@@ -106,7 +107,7 @@ begin
 
       fdQuery.Next;
     end;
-    MessageDlg('XML´s exportados com sucesso!', mtInformation, [mbOk], 0);
+    MessageDlg('XMLs exportados com sucesso!', mtInformation, [mbOk], 0);
   end
   else
     MessageDlg('Nenhum registro encontrado para exportar.', mtWarning, [mbOk], 0);

@@ -24,6 +24,7 @@ type
     procedure FiltroXML(DatInicial, DatFinal : String);
     procedure FiltroInutilizacao(DatInicial, DatFinal, Serie, Modelo : String; NumeroInicial, NumeroFinal, Ano : Integer);
   end;
+
 var
   dmDados: TdmDados;
 
