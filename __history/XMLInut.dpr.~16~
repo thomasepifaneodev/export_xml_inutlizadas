@@ -1,4 +1,4 @@
-﻿program XMLInut;
+program XMLInut;
 
 uses
   Vcl.Forms,
@@ -7,8 +7,7 @@ uses
   XmlInutilizacao.View.Conexao in 'src\Model\XmlInutilizacao.View.Conexao.pas' {dmDados: TDataModule},
   uConexao in 'Classes\uConexao.pas',
   XmlInutilizacao.View.Login in 'src\View\XmlInutilizacao.View.Login.pas' {frmLogin},
-  XmlInutilizacao.View.Configuracao in 'src\View\XmlInutilizacao.View.Configuracao.pas',
-  Winapi.Windows, Vcl.Dialogs {frmConfig};
+  XmlInutilizacao.View.Configuracao in 'src\View\XmlInutilizacao.View.Configuracao.pas' {frmConfig};
 
 {$R *.res}
 
@@ -22,7 +21,7 @@ begin
   if (MutexHandle = 0) or (GetLastError = ERROR_ALREADY_EXISTS) then
   begin
     // Se o mutex já existir, outra instância está rodando
-    Application.MessageBox('O aplicativo já está em execução.', 'Atenção', MB_OK + MB_ICONWARNING);
+    MessageDlg('O aplicativo já está em execução.', mtWarning, [mbOK], 0);
     Halt;
   end;
 end;

@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Phys.PGDef,
   FireDAC.Phys.PG, Data.DB, FireDAC.Comp.Client, System.SysUtils, Vcl.Forms,
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
-  FireDAC.Comp.DataSet, Winapi.Windows;
+  FireDAC.Comp.DataSet, Winapi.Windows, Vcl.Controls;
 
 type
   TdmDados = class(TDataModule)
@@ -47,13 +47,13 @@ begin
   fdQuery.SQL.Add('SELECT xml::VARCHAR(10000) arqxml, numeroinicial, serie, modelonf_codigo');
   fdQuery.SQL.Add('FROM inutilizacao');
   fdQuery.SQL.Add('WHERE datahora BETWEEN ' + '''' + DatIni + ' 00:00:00''' + ' AND ' + '''' + DatFim + ' 23:59:59''');
-  fdQuery.SQL.Add('AND numeroinicial = ' + IntToStr(NumeroInicial));
-  fdQuery.SQL.Add('AND numerofinal = ' + IntToStr(NumeroFinal));
   fdQuery.SQL.Add('AND ano = ' + IntToStr(Ano));
   fdQuery.SQL.Add('AND serie = ' + '''' + Serie + '''');
   fdQuery.SQL.Add('AND modelonf_codigo = ' + '''' + Modelo + '''');
-  fdQuery.Open;
+  fdQuery.SQL.Add('AND( numeroinicial BETWEEN ' + IntToStr(NumeroInicial) + ' AND ' + IntToStr(NumeroFinal));
+  fdQuery.SQL.Add('OR numerofinal BETWEEN ' + IntToStr(NumeroInicial) + ' AND ' + IntToStr(NumeroFinal) + ')');
 
+  fdQuery.Open;
 end;
 
 procedure TdmDados.FiltroXML(DatInicial, DatFinal : String);

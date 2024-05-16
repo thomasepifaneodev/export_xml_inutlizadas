@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Phys.PGDef,
   FireDAC.Phys.PG, Data.DB, FireDAC.Comp.Client, System.SysUtils, Vcl.Forms,
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
-  FireDAC.Comp.DataSet, Winapi.Windows, Vcl.Controls;
+  FireDAC.Comp.DataSet, Winapi.Windows, Vcl.Controls, Vcl.Dialogs;
 
 type
   TdmDados = class(TDataModule)
@@ -107,10 +107,10 @@ begin
 
       fdQuery.Next;
     end;
-    Application.MessageBox('XMLs exportados com sucesso!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
+    MessageDlg('XMLs exportados com sucesso!', mtInformation, [mbOk], 0);
   end
   else
-    Application.MessageBox('Nenhum registro encontrado para exportar.', 'XML Inutilização', MB_OK + MB_ICONEXCLAMATION);
+    MessageDlg('Nenhum registro encontrado para exportar.', mtWarning, [mbOk], 0);
 end;
 
 procedure TdmDados.fdPgLinkDriverCreated(Sender: TObject);

@@ -8,25 +8,40 @@
     <Transaction>2024/04/29 11:38:25.000.410,=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2024/04/29 11:49:37.000.427,=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2024/05/02 14:55:27.000.579,=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2024/05/02 14:56:05.000.653,C:\Users\Usuario\Documents\XMLInutilizacao\src\View\XmlInutilizacao.View.Principal.pas=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2024/05/02 14:56:05.000.653,C:\Users\Usuario\Documents\XMLInutilizacao\src\View\XmlInutilizacao.View.Principal.dfm=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2024/05/02 14:56:13.000.790,C:\Users\Usuario\Documents\XMLInutilizacao\XMLInut.dproj=C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/05/02 14:56:05.000.653,C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Usuario\Documents\XMLInutilizacao\src\View\XmlInutilizacao.View.Principal.dfm</Transaction>
+    <Transaction>2024/05/02 14:56:05.000.653,C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Usuario\Documents\XMLInutilizacao\src\View\XmlInutilizacao.View.Principal.pas</Transaction>
+    <Transaction>2024/05/02 14:56:13.000.790,C:\Users\Usuario\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Usuario\Documents\XMLInutilizacao\XMLInut.dproj</Transaction>
     <Transaction>2024/05/02 15:39:20.000.031,=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas</Transaction>
-    <Transaction>2024/05/02 15:39:28.000.788,C:\Users\Usuario\Documents\XMLInutilizacao\Classes\uLib.pas=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas</Transaction>
+    <Transaction>2024/05/02 15:39:28.000.788,C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas=C:\Users\Usuario\Documents\XMLInutilizacao\Classes\uLib.pas</Transaction>
     <Transaction>2024/05/02 15:41:46.000.980,=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas</Transaction>
-    <Transaction>2024/05/02 15:42:14.000.048,C:\Users\Usuario\Documents\XMLInutilizacao\src\Model\XmlInutilizacao.View.Conexao.pas=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas</Transaction>
-    <Transaction>2024/05/02 15:42:14.000.048,C:\Users\Usuario\Documents\XMLInutilizacao\src\Model\XmlInutilizacao.View.Conexao.dfm=C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.dfm</Transaction>
+    <Transaction>2024/05/02 15:42:14.000.048,C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.pas=C:\Users\Usuario\Documents\XMLInutilizacao\src\Model\XmlInutilizacao.View.Conexao.pas</Transaction>
+    <Transaction>2024/05/02 15:42:14.000.048,C:\Users\Usuario\Documents\XMLInutilizacao\Unit1.dfm=C:\Users\Usuario\Documents\XMLInutilizacao\src\Model\XmlInutilizacao.View.Conexao.dfm</Transaction>
     <Transaction>2024/05/03 17:04:36.000.163,C:\Users\Usuario\Documents\XMLInutilizacao\src\Model\XmlInutilizacao.View.Conexao.pas=</Transaction>
     <Transaction>2024/05/03 20:19:55.000.613,=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.pas</Transaction>
-    <Transaction>2024/05/03 20:20:21.000.801,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.dfm=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\src\Model\XmlInutilizacao.View.Conexao.dfm</Transaction>
-    <Transaction>2024/05/03 20:20:21.000.801,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.pas=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\src\Model\XmlInutilizacao.View.Conexao.pas</Transaction>
+    <Transaction>2024/05/03 20:20:21.000.801,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\src\Model\XmlInutilizacao.View.Conexao.pas=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.pas</Transaction>
+    <Transaction>2024/05/03 20:20:21.000.801,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\src\Model\XmlInutilizacao.View.Conexao.dfm=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.dfm</Transaction>
     <Transaction>2024/05/09 13:58:53.000.501,=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.pas</Transaction>
-    <Transaction>2024/05/09 13:59:07.000.665,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.pas=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Classes\uConexao.pas</Transaction>
+    <Transaction>2024/05/09 13:59:07.000.665,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Classes\uConexao.pas=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.pas</Transaction>
     <Transaction>2024/05/14 08:17:37.000.176,=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.pas</Transaction>
-    <Transaction>2024/05/14 08:19:36.000.527,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\src\View\XmlInutilizacao.View.Login.pas=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.pas</Transaction>
-    <Transaction>2024/05/14 08:19:36.000.527,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\src\View\XmlInutilizacao.View.Login.dfm=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.dfm</Transaction>
+    <Transaction>2024/05/14 08:19:36.000.527,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.dfm=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\src\View\XmlInutilizacao.View.Login.dfm</Transaction>
+    <Transaction>2024/05/14 08:19:36.000.527,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit1.pas=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\src\View\XmlInutilizacao.View.Login.pas</Transaction>
     <Transaction>2024/05/14 08:19:47.000.565,=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit2.pas</Transaction>
-    <Transaction>2024/05/14 08:24:00.000.208,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\src\View\XmlInutilizacao.View.Configuracao.pas=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit2.pas</Transaction>
-    <Transaction>2024/05/14 08:24:00.000.208,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\src\View\XmlInutilizacao.View.Configuracao.dfm=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit2.dfm</Transaction>
-  </Transactions>
+    <Transaction>2024/05/14 08:24:00.000.208,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit2.dfm=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\src\View\XmlInutilizacao.View.Configuracao.dfm</Transaction>
+    <Transaction>2024/05/14 08:24:00.000.208,C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\Unit2.pas=C:\Users\Usuario\Documents\XMLInutilizacao\export_xml_inutlizadas\src\View\XmlInutilizacao.View.Configuracao.pas</Transaction>
+  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Classes"/>
+    <File Path="Classes\uConexao.pas"/>
+    <File Path="Classes\uLib.pas"/>
+    <File Path="src"/>
+    <File Path="src\Model"/>
+    <File Path="src\Model\XmlInutilizacao.View.Conexao.pas"/>
+    <File Path="src\Model\XmlInutilizacao.View.Conexao.dfm"/>
+    <File Path="src\View"/>
+    <File Path="src\View\XmlInutilizacao.View.Configuracao.pas"/>
+    <File Path="src\View\XmlInutilizacao.View.Configuracao.dfm"/>
+    <File Path="src\View\XmlInutilizacao.View.Login.pas"/>
+    <File Path="src\View\XmlInutilizacao.View.Login.dfm"/>
+    <File Path="src\View\XmlInutilizacao.View.Principal.pas"/>
+    <File Path="src\View\XmlInutilizacao.View.Principal.dfm"/>
+  </ProjectSortOrder>
 </BorlandProject>

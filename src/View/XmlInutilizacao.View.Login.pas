@@ -5,8 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, uConexao, XmlInutilizacao.View.Conexao, uLib,
-  System.ImageList, Vcl.ImgList, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Buttons, XmlInutilizacao.View.Configuracao,
-  AdvGlassButton;
+  System.ImageList, Vcl.ImgList, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Buttons, XmlInutilizacao.View.Configuracao;
 
 type
   TfrmLogin = class(TForm)
@@ -56,14 +55,13 @@ begin
       begin
         if e.ToString.Contains('failed: FATAL:  password authentication failed for user') then
       begin
-        Application.MessageBox('Usuário e/ou Senha incorretos! ', 'XML Inutilização', MB_OK + MB_ICONWARNING);
+         MessageDlg('Usuário e/ou Senha incorretos!', mtWarning, [mbOk], 0);
       end
         else if e.ToString.Contains('failed: fe_sendauth: no password supplied') then
-        Application.MessageBox('Informe usuário e senha!', 'XML Inutilização', MB_OK + MB_ICONWARNING)
+        MessageDlg('Informe usuário e senha!', mtWarning, [mbOk], 0)
       else
       begin
-        Application.MessageBox('Não foi possível conectar.' + sLineBreak + 'Verifique as configurações!', 'XML Inutilização', MB_OK + MB_ICONWARNING);
-
+        MessageDlg('Não foi possível conectar. Verifique as configurações!', mtWarning, [mbOk], 0);
           frmConfig := TFrmConfig.Create(nil);
         try
           frmConfig.ShowModal();

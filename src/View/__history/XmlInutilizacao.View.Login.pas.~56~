@@ -15,7 +15,7 @@ type
     edtUsuario: TEdit;
     btnConfig: TSpeedButton;
     ImageList: TImageList;
-    btnLogin: TAdvGlassButton;
+    btnLogin: TSpeedButton;
     procedure btnLoginClick(Sender: TObject);
     procedure edtUsuarioKeyPress(Sender: TObject; var Key: Char);
     procedure edtSenhaKeyPress(Sender: TObject; var Key: Char);
@@ -59,7 +59,7 @@ begin
         Application.MessageBox('Usuário e/ou Senha incorretos! ', 'XML Inutilização', MB_OK + MB_ICONWARNING);
       end
         else if e.ToString.Contains('failed: fe_sendauth: no password supplied') then
-        Application.MessageBox('Informe a senha!', 'XML Inutilização', MB_OK + MB_ICONWARNING)
+        Application.MessageBox('Informe usuário e senha!', 'XML Inutilização', MB_OK + MB_ICONWARNING)
       else
       begin
         Application.MessageBox('Não foi possível conectar.' + sLineBreak + 'Verifique as configurações!', 'XML Inutilização', MB_OK + MB_ICONWARNING);
@@ -78,14 +78,19 @@ end;
 procedure TfrmLogin.edtSenhaKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 Then
+  begin
+  Key := #0;
   btnLoginClick(Sender);
+  end;
 end;
 
 procedure TfrmLogin.edtUsuarioKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 Then
+  begin
+  Key := #0;
   edtSenha.SetFocus;
+  end;
 end;
-
 
 end.

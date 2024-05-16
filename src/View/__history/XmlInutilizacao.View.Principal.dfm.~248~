@@ -45,7 +45,7 @@ object frmPrincipal: TfrmPrincipal
     end
     object lblInicio: TLabel
       AlignWithMargins = True
-      Left = 880
+      Left = 881
       Top = 54
       Width = 79
       Height = 21
@@ -57,35 +57,18 @@ object frmPrincipal: TfrmPrincipal
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object DatePicker1Inicial: TDatePicker
-      Left = 963
-      Top = 51
-      Width = 105
-      Height = 26
-      Date = 45422.000000000000000000
-      DateFormat = 'dd/mm/yyyy'
-      Font.Charset = DEFAULT_CHARSET
+    object lblCheckBox: TLabel
+      Left = 650
+      Top = 53
+      Width = 87
+      Height = 20
+      Caption = 'Ativar Filtros'
+      Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      TabOrder = 5
-      TabStop = False
-    end
-    object DatePicker2Final: TDatePicker
-      Left = 1154
-      Top = 51
-      Width = 105
-      Height = 26
-      Date = 45422.000000000000000000
-      DateFormat = 'dd/mm/yyyy'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -16
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      TabOrder = 6
-      TabStop = False
+      Font.Height = -15
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
     end
     object lblAno: TLabeledEdit
       Left = 5
@@ -181,7 +164,7 @@ object frmPrincipal: TfrmPrincipal
       Font.Height = -13
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
-      MaxLength = 10
+      MaxLength = 9
       ParentFont = False
       TabOrder = 3
       Text = ''
@@ -206,7 +189,7 @@ object frmPrincipal: TfrmPrincipal
       Font.Height = -13
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
-      MaxLength = 10
+      MaxLength = 9
       ParentFont = False
       TabOrder = 4
       Text = ''
@@ -223,8 +206,48 @@ object frmPrincipal: TfrmPrincipal
       Font.Name = 'Segoe UI Semibold'
       Font.Style = [fsBold]
       ParentFont = False
-      TabOrder = 7
+      TabOrder = 5
       OnClick = checkBoxClick
+    end
+    object DatePicker1Inicial: TDateTimePicker
+      Left = 965
+      Top = 49
+      Width = 105
+      Height = 28
+      BevelInner = bvNone
+      BevelOuter = bvNone
+      Time = 0.649023773148655900
+      Color = clGradientInactiveCaption
+      DoubleBuffered = False
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParseInput = True
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 6
+      StyleName = 'Windows'
+    end
+    object DatePicker2Final: TDateTimePicker
+      Left = 1154
+      Top = 49
+      Width = 105
+      Height = 28
+      BevelInner = bvNone
+      BevelOuter = bvNone
+      Time = 0.649023773148655900
+      Color = clGradientInactiveCaption
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Segoe UI Semibold'
+      Font.Style = [fsBold]
+      ParseInput = True
+      ParentFont = False
+      TabOrder = 7
+      StyleName = 'Windows'
     end
   end
   object pnlBottom: TPanel

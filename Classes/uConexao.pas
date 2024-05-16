@@ -3,7 +3,7 @@ unit uConexao;
 interface
 
 uses XmlInutilizacao.View.Conexao, System.Classes, System.SysUtils, Vcl.Forms, uLib,
-  Vcl.Controls, System.UITypes,  Winapi.Windows, Winapi.Messages;
+  Vcl.Controls, System.UITypes, Winapi.Windows, Winapi.Messages, Vcl.Dialogs;
 
 procedure Conexao(Ip, Porta, Base : String);
 procedure LoginUser(User, Pass : String);
@@ -26,7 +26,7 @@ begin
   (GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'PORTA') = '')
   then
   begin
-    Application.MessageBox('Verifique as infromações do arquivo INI!', 'XML Inutilização', MB_OK + MB_ICONWARNING);
+    MessageDlg('Verifique as infromações do arquivo INI!', mtInformation, [mbOk], 0);
   end
   else
   begin

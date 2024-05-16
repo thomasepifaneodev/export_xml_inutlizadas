@@ -35,7 +35,7 @@ implementation
 procedure TfrmConfig.btnConfirmarClick(Sender: TObject);
 begin
   Conexao(edtIp.Text , edtPorta.Text, edtBase.Text);
-  MessageDlg('Configuração salva!', mtInformation, [mbOk], 0);
+  Application.MessageBox('Configuração salva!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
   Close;
 end;
 

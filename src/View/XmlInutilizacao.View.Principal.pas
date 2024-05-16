@@ -12,7 +12,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.UI.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.VCLUI.Wait, XmlInutilizacao.View.Conexao, uConexao,
-  XmlInutilizacao.View.Login, AdvOfficeButtons, AdvGlassButton;
+  XmlInutilizacao.View.Login;
 
 type
   TfrmPrincipal = class(TForm)
@@ -77,7 +77,7 @@ end;
 
 procedure TfrmPrincipal.FecharApp;
 begin
-  if Application.MessageBox('Deseja realmente fechar o aplicativo?', 'XML Inutilização', MB_YESNO + MB_ICONQUESTION) = IDYES then
+  if MessageDlg('Deseja realmente fechar o aplicativo?', mtInformation, [mbNo, mbYes], 0) = IDYES then
 begin
   Application.Terminate;
 end;
@@ -107,7 +107,7 @@ begin
   begin
     if (lblAno.Text = '') OR (lblModel.Text = '')  OR (lblSerie.Text = '') OR (lblNinicial.Text = '') OR (lblNfinal.Text = '') then
   begin
-    Application.MessageBox('Todos os campos dos filtros devem ser preenchidos!', 'XML Inutilização', MB_OK + MB_ICONINFORMATION);
+    MessageDlg('Todos os campos dos filtros devem ser preenchidos!', mtInformation, [mbOk], 0)
   end
   else
     dmDados.FiltroInutilizacao(DateToStr(DatePicker1Inicial.Date), DateToStr(DatePicker2Final.Date),
@@ -153,7 +153,7 @@ begin
 
   if not ArquivoINIExiste(ExtractFilePath(Application.ExeName) + 'XMLInut.ini') then
   begin
-  Application.MessageBox('Arquivo de configuração não encontrado!', 'XML Inutilização', MB_OK + MB_ICONWARNING);
+  MessageDlg('Arquivo de configuração não encontrado!', mtWarning, [mbOk], 0);
   frmConfig := TFrmConfig.Create(nil);
     try
       frmConfig.ShowModal();

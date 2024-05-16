@@ -12,7 +12,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.UI.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.VCLUI.Wait, XmlInutilizacao.View.Conexao, uConexao,
-  XmlInutilizacao.View.Login, AdvOfficeButtons, AdvGlassButton;
+  XmlInutilizacao.View.Login;
 
 type
   TfrmPrincipal = class(TForm)
@@ -24,18 +24,19 @@ type
     dataSource: TDataSource;
     lblFinal: TLabel;
     lblInicio: TLabel;
-    DatePicker1Inicial: TDatePicker;
-    DatePicker2Final: TDatePicker;
     lblRows: TLabel;
     lblAno: TLabeledEdit;
     lblModel: TLabeledEdit;
     lblSerie: TLabeledEdit;
     lblNinicial: TLabeledEdit;
     lblNfinal: TLabeledEdit;
-    checkBox: TAdvOfficeCheckBox;
-    btn4Checar: TAdvGlassButton;
-    btn1Export: TAdvGlassButton;
-    btn3Exit: TAdvGlassButton;
+    btn1Export: TSpeedButton;
+    btn1Exit: TSpeedButton;
+    btn4Checar: TSpeedButton;
+    checkBox: TCheckBox;
+    lblCheckBox: TLabel;
+    DatePicker1Inicial: TDateTimePicker;
+    DatePicker2Final: TDateTimePicker;
 
     procedure FormShow(Sender: TObject);
     procedure btn3ExitClick(Sender: TObject);
@@ -76,7 +77,8 @@ end;
 
 procedure TfrmPrincipal.FecharApp;
 begin
-  if Application.MessageBox('Deseja realmente fechar o aplicativo?', 'XML Inutilização', MB_YESNO + MB_ICONQUESTION) = IDYES then
+  //if Application.MessageBox('Deseja realmente fechar o aplicativo?', 'XML Inutilização', MB_YESNO + MB_ICONQUESTION) = IDYES then
+  if MessageDlg('Deseja realmente fechar o aplicativo?', mtInformation, [mbOk, mbYes], 0) = IDYES then
 begin
   Application.Terminate;
 end;
@@ -127,6 +129,7 @@ begin
   begin
   Self.SetFocus;
   AlterarControles;
+  lblAno.SetFocus;
   end
   else
   begin
@@ -148,6 +151,7 @@ end;
 
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
+
   if not ArquivoINIExiste(ExtractFilePath(Application.ExeName) + 'XMLInut.ini') then
   begin
   Application.MessageBox('Arquivo de configuração não encontrado!', 'XML Inutilização', MB_OK + MB_ICONWARNING);

@@ -26,14 +26,12 @@ begin
   (GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'PORTA') = '')
   then
   begin
-    Application.MessageBox('Dados do arquivo de configuração incorreto!', 'XML Inutilização', MB_OK + MB_ICONWARNING);
+    Application.MessageBox('Verifique as infromações do arquivo INI!', 'XML Inutilização', MB_OK + MB_ICONWARNING);
   end
   else
   begin
   dmDados.fdPgLink.VendorHome := ExtractFilePath(Application.ExeName);
   vFileName := ExtractFilePath(Application.ExeName) + 'XMLInut.ini';
-
-  SetValorIni(vFileName, 'CONFIGURACAO', 'USER_C', User);
 
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Clear;
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.UserName := User;
@@ -42,6 +40,7 @@ begin
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Add('Database=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'BASE'));
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Add('Port=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'PORTA'));
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Add('Server=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'XMLInut.ini', 'CONFIGURACAO', 'SERVER'));
+  XmlInutilizacao.View.Conexao.dmDados.fdConnection.Params.Add('LoginTimeout=2');
 
   XmlInutilizacao.View.Conexao.dmDados.fdConnection.Connected := True;
   end;

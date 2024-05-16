@@ -216,6 +216,7 @@ object frmPrincipal: TfrmPrincipal
       Height = 28
       BevelInner = bvNone
       BevelOuter = bvNone
+      Date = 45427.000000000000000000
       Time = 0.649023773148655900
       Color = clGradientInactiveCaption
       DoubleBuffered = False
@@ -237,6 +238,7 @@ object frmPrincipal: TfrmPrincipal
       Height = 28
       BevelInner = bvNone
       BevelOuter = bvNone
+      Date = 45427.000000000000000000
       Time = 0.649023773148655900
       Color = clGradientInactiveCaption
       Font.Charset = ANSI_CHARSET
@@ -261,7 +263,6 @@ object frmPrincipal: TfrmPrincipal
     ParentBackground = False
     TabOrder = 1
     StyleName = 'Windows'
-    ExplicitTop = 711
     object lblRows: TLabel
       Left = 426
       Top = 12
@@ -344,7 +345,6 @@ object frmPrincipal: TfrmPrincipal
     ParentBackground = False
     TabOrder = 2
     StyleName = 'Windows'
-    ExplicitHeight = 588
     object dbGridPrincipal: TDBGrid
       Left = 0
       Top = 0
